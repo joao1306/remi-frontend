@@ -1,0 +1,34 @@
+.texto-saudacao{
+    color: white;
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.saudar{
+    background-color: white;
+    color: orange;
+    width: 15vw;
+    height: 10vh;
+    border-radius: 4rem;
+    margin-top: 1.5rem;
+    font-size: 2rem;
+    font-weight: 600;
+    outline: none;
+    border-style: none;
+    font-family: 'Montserrat', sans-serif;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.saudar:hover{
+    width: 16vw;
+    height: 11vh ;
+}
+
+.saudar:active{
+    transition: .2s;
+    width: 15vw;
+    height: 10vh;
+}

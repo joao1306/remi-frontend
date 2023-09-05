@@ -1,0 +1,111 @@
+.background-login, .background-cadastro, .background-saudacao{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: orange;
+}
+
+.login-box{
+    width: 27vw;
+    height: 80vh;
+    background-color: rgb(240, 240, 240);
+    border-radius: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.login-form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-login{
+    width: 50%;
+    margin-bottom: 3rem;
+}
+
+.input-box-login{
+    width: 60%;
+    height: 7%;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+
+.icone-login-box{
+    margin-bottom: .5rem;
+    position: absolute;
+    right: .4rem;
+    color: orange;
+}
+
+.input-login{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid orange;
+    width: 100%;
+    height: 80%;
+}
+
+.input-senha{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid orange;
+    width: 100%;
+    height: 80%;
+}
+
+.lembrar{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 6%;
+    margin-bottom: .5rem;
+}
+
+.checkbox{
+    margin-right: .5rem;
+}
+
+.login-text{
+    font-size: .8rem;
+}
+
+.botao-entrar{
+    width: 60%;
+    height: 10%;
+    border-radius: 5rem;
+    border-style: none;
+    outline: none;
+    background-color: orange;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: .5rem;
+    cursor: pointer;
+}
+
+.botao-entrar:hover{
+    background-color: rgb(255, 189, 67);
+}
+
+.botao-entrar:active{
+    background-color: rgb(223, 150, 15);
+}
+
+
+.link-cadastro{
+    color: orange;
+    text-decoration: none;
+}

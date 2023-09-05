@@ -1,0 +1,10 @@
+.voltar{
+    margin-top: .5rem;
+    color: orange;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.voltar:hover{
+    color: rgb(255, 180, 41);
+}

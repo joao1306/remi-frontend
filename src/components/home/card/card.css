@@ -1,0 +1,143 @@
+.card-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 14.5vw;
+    height: 95%;
+    background-color: rgb(255, 255, 255);
+    border-radius: .8rem;
+    transition: all .3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-box:hover{
+    /* Adiciona uma sombra com offsetX, offsetY, raio, espalhamento e cor */
+    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.185);
+    transition: all .3s ease;
+    min-width: 15vw;
+}
+
+.display-foto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    height: 57%;
+}
+
+.foto-card{
+    height: 100%;
+}
+
+.box-titulo-subtitulo{
+    width: 90%;
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.titulo-card{
+    font-size: 15px;
+    margin-bottom: 0;
+    font-weight: 900;
+}
+
+.subtitulo-card{
+    font-size: 10px;
+    margin-top: 0;
+    font-weight: 700;
+}
+
+.box-perfil-nota{
+    width: 90%;
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.display-foto-perfil{
+    height: 2.3rem;
+    width: 2.3rem;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.foto-perfil-card{
+    width: 150%;
+}
+
+.box-nome-titulo{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.nome-usuario{
+    font-size: .65rem;
+    margin-bottom: 0;
+    font-weight: 800;
+    color: orange;
+}
+
+.titulo-usuario{
+    font-size: .5rem;
+    margin-top: .1rem;
+    font-weight: 600;
+}
+
+.box-nota{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.icone-estrela{
+    width: .8rem;
+    color: orange;
+}
+
+.nota{
+    font-size: .9rem;
+    margin-left: .2rem;
+}
+
+.botao-card{
+    width: 70%;
+    height: 9%;
+    border-radius: 3rem;
+    background-color: orange;
+    margin-top: 0;
+    margin-bottom: 0;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all .3s ease;
+    font-weight: 900;
+    color: white;
+    font-size: 80%;
+}
+
+.botao-card:hover{
+    width: 75%;
+}
+
+.botao-card:active{
+    background-color: rgb(255, 178, 34);
+}
