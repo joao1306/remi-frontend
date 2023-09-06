@@ -28,30 +28,30 @@ export default function Sidebar() {
             <div className='line'></div>
             <div className='box-items-sidebar'>
                 
-                <div className='item-sidebar'>
-                    <FontAwesomeIcon icon={faPencil} className='icone-item-sidebar'/>
-                    <p className='texto-item-sidebar'>Nova Receita</p>
-                </div>
+                <a href="/cadastro-receita" className='item-sidebar botao-nova-receita'>
+                        <FontAwesomeIcon icon={faPencil} className='icone-item-sidebar'/>
+                        <p className='texto-item-sidebar'>Nova Receita</p>
+                </a>
 
-                <div className='item-sidebar'>
+                <a href="/minhas-receitas" className='item-sidebar botao-minhas-receitas'>
                 <FontAwesomeIcon icon={faBook} className='icone-item-sidebar'/>
                     <p className='texto-item-sidebar'>Minhas Receitas</p>                    
-                </div>
+                </a>
 
-                <div className='item-sidebar'>
+                <a href="/melhores-receitas" className='item-sidebar botao-melhores-receitas'>
                 <FontAwesomeIcon icon={faStar} className='icone-item-sidebar'/>
                     <p className='texto-item-sidebar'>Melhores Receitas</p>                    
-                </div>
+                </a>
 
-                <div className='item-sidebar'>
+                <a href="/editar-perfil" className='item-sidebar botao-editar-perfil'>
                 <FontAwesomeIcon icon={faGear} className='icone-item-sidebar'/>
                     <p className='texto-item-sidebar'>Editar Perfil</p>                    
-                </div>
+                </a>
 
-                <div className='item-sidebar'>
+                <a href="/login" className='item-sidebar botao-logout'>
                 <FontAwesomeIcon icon={faRightFromBracket} className='icone-item-sidebar'/>
                     <p className='texto-item-sidebar'>Logout</p>                    
-                </div>
+                </a>
 
             </div>
         </div>

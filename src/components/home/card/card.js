@@ -5,7 +5,6 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 export default function Card(prop) {
 
-
   function mediaNotas(arr) {
     let somaNotas = 0;
     const notas = JSON.parse(arr)
@@ -19,9 +18,6 @@ export default function Card(prop) {
 
     return media;
   }
-  
-
-
 
   return (
     

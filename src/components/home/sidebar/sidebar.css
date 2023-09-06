@@ -1,5 +1,9 @@
 /* Quando a sidebar estiver fechada vvv*/
 
+a{
+    text-decoration: none;
+}
+
 .sidebar{
     background-color: orange;
     width: 80px;
