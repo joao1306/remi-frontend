@@ -10,7 +10,7 @@ export default function Saudacao() {
   return (
     <div className='background-saudacao'>
       <div>
-          <p className='texto-saudacao'>Olá, <b>{auth}</b>!</p>
+          <p className='texto-saudacao'>Olá, <b>{auth.username}</b>!</p>
           <Link to='/home'><button className='saudar'>Olá!</button></Link>
       </div>
     </div>

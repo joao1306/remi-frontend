@@ -1,18 +1,38 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './card.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 
-export default function Card() {
+export default function Card(prop) {
+
+
+  function mediaNotas(arr) {
+    let somaNotas = 0;
+    const notas = JSON.parse(arr)
+  
+    notas.map((nota) => {
+      somaNotas = somaNotas + parseFloat(nota, 10);
+    });
+  
+    const numeroDeNotas = notas.length;
+    const media = somaNotas / numeroDeNotas;
+
+    return media;
+  }
+  
+
+
+
   return (
+    
     <div className='card-box'>
         <div className='display-foto'>
-          <img src='https://s2.glbimg.com/owIUIv1ShU7hdcpiRVZJgudch-A=/e.glbimg.com/og/ed/f/original/2015/11/30/thinkstockphotos-481608168.jpg' className='foto-card'></img>
+          <img src={prop.foto} className='foto-card'></img>
         </div>
 
         <div className='box-titulo-subtitulo'>
-          <h2 className='titulo-card'>Picanha no bafo</h2>
-          <h4 className='subtitulo-card'>carnes</h4>
+          <h2 className='titulo-card'>{prop.nome}</h2>
+          <h4 className='subtitulo-card'>{prop.categoria}</h4>
         </div>
 
         <div className='box-perfil-nota'>
@@ -28,7 +48,7 @@ export default function Card() {
 
           <div className='box-nota'>
             <FontAwesomeIcon icon={faStar} className='icone-estrela'/>
-            <h3 className='nota'>4.3</h3>
+            <h3 className='nota'>{mediaNotas(prop.notas)}</h3>
           </div>
 
 

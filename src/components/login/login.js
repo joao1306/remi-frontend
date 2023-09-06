@@ -31,8 +31,7 @@ export default function Login() {
         
         if (response.data.username) {
           console.log('Usuário autenticado com sucesso', response.data);
-          setAuth(response.data.username);
-          console.log(response.data.username);
+          setAuth(response.data);
           navigate('/saudacao');
         } else {
           console.log('Autenticação falhou:', response.data.message);

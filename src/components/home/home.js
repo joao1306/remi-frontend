@@ -1,12 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './home.css';
 import Sidebar from './sidebar/sidebar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import Categoria from './categoria/categoria'
 import Card from './card/card'
+import axios from 'axios';
 
-export default function home() {
+export default function Home() {
+
+  const [recipes, setRecipes] = useState([]);
+
+  async function fetchRecipes() {
+    try {
+      const response = await axios.get('http://localhost:8800/recipes'); 
+      if (response.status === 200) {
+        const data = response.data;
+        setRecipes(data);
+      } else {
+        throw new Error('Erro ao buscar receitas');
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  
+  fetchRecipes();
+
+  function mapReceitas(arr){
+    return arr.map((receita, index)=>(<Card key={index} 
+      foto={receita.foto}
+      nome={receita.nome}
+      categoria={receita.categoria}
+      notas={receita.notas}
+      ></Card>))   
+}
+
   return (
     <div className='screen'>
       <Sidebar></Sidebar>
@@ -42,18 +71,7 @@ export default function home() {
         </div>
 
         <div className='box-receitas'>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
+          {mapReceitas(recipes)}
         </div>
 
       </div>
