@@ -1,0 +1,204 @@
+.form-receita{
+    width: 100%;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.form-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo-formulario-receita{
+    font-size: 2.5rem;
+    color: rgba(0, 0, 0, 0.76);
+}
+
+.bloco-superior{
+    width: 90%;
+    height: 40vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.bloco-esquerdo{
+    width: 49.2%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 1rem;
+}
+
+.bloco-direito{
+    width: 49.2%;
+    height: 100%;
+    background-color: white;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding-inline: 1.5rem;
+}
+
+.box-persistencia-ingrediente{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 2px rgba(39, 39, 39, 0.212) solid;
+}
+
+.botao-ingrediente{
+    width: 1.8rem;
+    height: 1.8rem;
+    color: orange;
+    cursor: pointer;
+}
+
+.botao-ingrediente:hover{
+    color: rgb(255, 180, 40);
+}
+
+.input-ingrediente{
+    width: 87%;
+    height: 5vh;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    box-sizing: border-box;
+    border-style: none;
+    outline: none;
+}
+
+.input-bloco-superior-esquerdo{
+    width: 100%;
+    max-width: 100%;
+    height: 10vh;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    border: none;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+}
+
+.text-area{
+    width: 100%;
+    height: 15vh;
+    resize: none;
+    box-sizing: border-box;
+    padding: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    border-radius: 1rem;
+    border-style: none;
+
+}
+
+.box-nome-categoria{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-bloco-superior-esquerdo-link{
+    width: 70%;
+    height: 10vh;
+    box-sizing: border-box;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1rem;
+    border: none;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+}
+
+
+.select-categoria{
+    width:28%;
+    height: 10vh;
+    padding-left: 1rem;
+    border-radius: 1rem;
+    outline: none;
+    border-style: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.select-categoria:hover{
+    background-color: orange;
+    color: white;
+}
+
+option{
+    border-style: none;
+    outline: none;
+}
+
+
+
+
+
+
+
+
+
+.adicionar-passo{
+    width: 90%;
+    height: 10vh;
+    background-color: white;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.line-passos{
+    width: 50%;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.164);
+    margin-top: 2rem;
+}
+
+.input-passo{
+    width: 93%;
+    height: 50%;
+    background-color: transparent;
+    border-style: none;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+}
+
+.botao-passo{
+    width: 2.5rem;
+    height: 2.5rem;
+    color: orange;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.botao-passo:hover{
+    color: rgb(255, 180, 40);
+    transition: all .3s ease;
+}

@@ -28,7 +28,7 @@ export default function Sidebar() {
             <div className='line'></div>
             <div className='box-items-sidebar'>
                 
-                <a href="/cadastro-receita" className='item-sidebar botao-nova-receita'>
+                <a href="/home/cadastro-receita" className='item-sidebar botao-nova-receita'>
                         <FontAwesomeIcon icon={faPencil} className='icone-item-sidebar'/>
                         <p className='texto-item-sidebar'>Nova Receita</p>
                 </a>
