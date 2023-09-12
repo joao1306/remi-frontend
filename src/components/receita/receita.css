@@ -1,0 +1,219 @@
+.screen-receita{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(230, 230, 230, 0.788);
+    overflow-y: scroll;
+}
+
+.container-botao-home{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;    
+    width: 90%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.bloco-superior-receita{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;    
+    width: 90%;
+    height: 50%;
+    box-sizing: border-box;
+    padding-inline: 1.5rem;
+    border-radius: 1rem;
+}
+
+.display-foto-receita{
+    width: 49.2%;
+    height: 100%;
+    border-radius: 1rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.foto-receita{
+    width: 100%;
+}
+
+.bloco-info-receita{
+    width: 49.2%;
+    height: 100%;
+    box-sizing: border-box;
+    padding-inline:1.5rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nome-nota-receita{
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#box-titulo-receita{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+}
+
+#subtitulo-receita{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 700;
+}
+
+#nome-receita{
+    font-size: 2.5rem;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+#avaliacao{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80px;
+}
+
+#nota{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+#icone-estrela-receita{
+    color: orange;
+    font-size: 1.5rem;
+}
+
+.texto-descricao-receita{
+    width: 100%;
+    height: 40%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    text-align: left;
+    margin-bottom: .6rem;
+}
+
+#bloco-perfil-botao-ingredientes{
+    height: 19%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#display-perfil{
+    width: 4rem;
+    height: 4rem;
+    background-color:white;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+#foto-perfil{
+    width: 120%;
+}
+
+#nome-subtitulo{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#container-foto-nome{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#nome-subtitulo{
+    width: 15rem;
+    box-sizing: border-box;
+    padding-left: 1rem;
+    
+}
+
+#nome-usuario, #subtitulo-usuario{
+    margin: 0;
+}
+
+#nome-usuario{
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+#subtitulo-usuario{
+    font-size: .9rem;
+}
+
+#botao-ingredientes{
+    width:35%;
+    height: 65%;
+    border-radius: 5rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    background-color: orange;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+#botao-ingredientes:hover{
+    background-color: rgb(255, 180, 40);
+}
+
+#titulo-secao-passos{
+    margin: 0;
+    margin-top: 1.5rem;
+    margin-bottom:1.5rem;
+}
+
+.container-passos-receita{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+    padding-inline:1.5rem;
+}
+
+
+.box-passo-receita{
+    width: 100%;
+    height: 5rem;
+    padding-inline: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 1rem;
+    background-color: white;
+    box-sizing: border-box;
+    padding-inline:1.2rem;
+}
+
+.box-passo-receita:hover{
+    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.185);
+    transition: all .3s ease;
+}
