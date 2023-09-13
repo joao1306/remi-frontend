@@ -7,6 +7,7 @@ export default function Receita() {
     return (
 
         <div className='screen-receita'>
+
             <div className='container-botao-home'>
                 <a href='/home/lobby' className='botao-home'>
                     <FontAwesomeIcon icon={faHouse} />
@@ -79,9 +80,45 @@ export default function Receita() {
                 </div>
             </div>
 
+            <div className='container-passos-receita'>
+                <div className='box-passo-receita'>
+                    <div className='display-ordinal'>
+                        <p className='numero-passo'>3</p>
+                    </div>
+                    <p className='texto-passo'>Cortar em cubinhos de 2 a 3 centímetros cúbicos</p>
+                    <button className='delete-passo'><FontAwesomeIcon icon={faTrash} className='icone-lixeira-passo' /></button>
+                </div>
+            </div>
 
+            <div className='container-passos-receita'>
+                <div className='box-passo-receita'>
+                    <div className='display-ordinal'>
+                        <p className='numero-passo'>3</p>
+                    </div>
+                    <p className='texto-passo'>Cortar em cubinhos de 2 a 3 centímetros cúbicos</p>
+                    <button className='delete-passo'><FontAwesomeIcon icon={faTrash} className='icone-lixeira-passo' /></button>
+                </div>
+            </div>
 
+            <div className='container-passos-receita'>
+                <div className='box-passo-receita'>
+                    <div className='display-ordinal'>
+                        <p className='numero-passo'>3</p>
+                    </div>
+                    <p className='texto-passo'>Cortar em cubinhos de 2 a 3 centímetros cúbicos</p>
+                    <button className='delete-passo'><FontAwesomeIcon icon={faTrash} className='icone-lixeira-passo' /></button>
+                </div>
+            </div>
 
+            <div className='container-passos-receita'>
+                <div className='box-passo-receita'>
+                    <div className='display-ordinal'>
+                        <p className='numero-passo'>3</p>
+                    </div>
+                    <p className='texto-passo'>Cortar em cubinhos de 2 a 3 centímetros cúbicos</p>
+                    <button className='delete-passo'><FontAwesomeIcon icon={faTrash} className='icone-lixeira-passo' /></button>
+                </div>
+            </div>
 
         </div>
 

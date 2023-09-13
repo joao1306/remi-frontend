@@ -1,0 +1,123 @@
+.screen-edicao-perfil{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    padding-top:2rem;
+    padding-bottom:2rem;
+}
+
+#secao-edicao-perfil{
+    overflow-y: scroll;
+    width: 100%;
+    height: 32rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#titulo-secao-editar-perfil{
+    font-weight: 600;
+    font-size: 2.5rem;
+    margin: 0;
+    margin-bottom: 2rem;
+    color: rgba(0, 0, 0, 0.76);
+}
+
+#box-foto-perfil{
+    width: 15rem;
+    height: 15rem;
+    border-radius: 1rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+#icone-upload{
+    font-size: 4rem;
+    color: orange;
+}
+
+#label-input-foto{
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.76);
+}
+
+#input-link-foto{
+    width: 75%;
+    height: 10%;
+    border-radius: 3rem;
+    border: none;
+    outline: none;
+    background-color: rgb(255, 224, 167);
+    box-sizing: border-box;
+    text-align: center;
+    padding-inline: 1rem;
+}
+
+#input-link-foto::placeholder{
+    color: rgb(182, 132, 39);
+    font-size: .7rem;
+}
+
+.input-edicao-perfil{
+    width: 33rem;
+    height: 3.8rem;
+    border-radius: 1rem;
+    border: none;
+    outline: none;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+    padding-inline:1.5rem;
+    font-size: 1rem;
+}
+
+.input-edicao-perfil::placeholder{
+    font-size: 1rem;
+}
+
+#select-edicao-perfil{
+    width: 15rem;
+    height: 3.8rem;
+    border-radius: 1rem;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    padding-inline: 1rem;
+    margin-bottom: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#select-edicao-perfil:hover{
+    cursor: pointer;
+    background-color: orange;
+    transition:all .3s ease;
+    color: white;
+}
+
+#botao-salvar-perfil{
+    width: 15rem;
+    height: 3.8rem;
+    border-radius: 1rem;
+    background-color: orange;
+    outline: none;
+    border: none;
+    color: white;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all .3s ease;
+    box-sizing: border-box;
+}
+
+#botao-salvar-perfil:hover{
+    background-color: rgb(255, 180, 40);
+}

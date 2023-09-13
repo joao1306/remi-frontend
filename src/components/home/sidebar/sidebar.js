@@ -43,7 +43,7 @@ export default function Sidebar() {
                     <p className='texto-item-sidebar'>Melhores Receitas</p>                    
                 </a>
 
-                <a href="/editar-perfil" className='item-sidebar botao-editar-perfil'>
+                <a href="/home/editar-perfil" className='item-sidebar botao-editar-perfil'>
                 <FontAwesomeIcon icon={faGear} className='icone-item-sidebar'/>
                     <p className='texto-item-sidebar'>Editar Perfil</p>                    
                 </a>

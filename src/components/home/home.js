@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './home.css';
 import Sidebar from './sidebar/sidebar';
 import Receita from '../receita/Receita';
+import Perfil from './edicao-perfil/Perfil';
 import Categoria from './categoria/categoria';
 import Card from './card/card';
 import CadastroReceita from './cadastro-receita/CadastroReceita';
@@ -46,7 +47,7 @@ export default function Home() {
             <Route path='/lobby' element={<Lobby/>}/>
             <Route path='/cadastro-receita' element={<CadastroReceita/>}/>
             <Route path='/melhores-receitas' element={''}/>
-            <Route path='/editar-perfil' element={''}/>
+            <Route path='/editar-perfil' element={<Perfil/>}/>
             <Route path='/receita' element={<Receita/>}/>
           </Routes>
 

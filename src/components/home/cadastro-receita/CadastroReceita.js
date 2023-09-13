@@ -6,11 +6,13 @@ import { faCirclePlus, faTrash, faHouse } from '@fortawesome/free-solid-svg-icon
 export default function CadastroReceita() {
   return (
     <div className='form-receita'>
-      <h2 className='titulo-formulario-receita'>Cadastro de Receita</h2>
-      <a href='/home/lobby' className='botao-home'>
-        <FontAwesomeIcon icon={faHouse} />
-      </a>
+      <div className='container-botao-home'>
+        <a href='/home/lobby' className='botao-home'>
+          <FontAwesomeIcon icon={faHouse} />
+        </a>
+      </div>
       <form className='form-container'>
+      <h2 className='titulo-formulario-receita'>Cadastro de Receita</h2>
 
         {/* bloco superior do formulario (nome, descricao, link, categoria e ingredientes) */}
         <div className='bloco-superior'>
@@ -29,42 +31,42 @@ export default function CadastroReceita() {
             </div>
           </div>
           <div className='bloco-direito'>
-            
+
             <div className='box-persistencia-ingrediente'>
               <input className='input-ingrediente' placeholder='Adicione os ingredientes aqui.'></input>
-              <FontAwesomeIcon icon={faCirclePlus} className='botao-ingrediente'/>
+              <FontAwesomeIcon icon={faCirclePlus} className='botao-ingrediente' />
             </div>
-            
+
             <div className='container-ingredientes'>
-              
+
               <div className='box-ingrediente'>
                 <p className='nome-ingrediente'>Carne Bovina</p>
-                <button className='botao-lixeira'><FontAwesomeIcon icon={faTrash} className='icone-lixeira'/></button>
+                <button className='botao-lixeira'><FontAwesomeIcon icon={faTrash} className='icone-lixeira' /></button>
               </div>
 
               <div className='box-ingrediente'>
                 <p className='nome-ingrediente'>Carne Bovina</p>
-                <button className='botao-lixeira'><FontAwesomeIcon icon={faTrash} className='icone-lixeira'/></button>
+                <button className='botao-lixeira'><FontAwesomeIcon icon={faTrash} className='icone-lixeira' /></button>
               </div>
 
               <div className='box-ingrediente'>
                 <p className='nome-ingrediente'>Carne Bovina</p>
-                <button className='botao-lixeira'><FontAwesomeIcon icon={faTrash} className='icone-lixeira'/></button>
+                <button className='botao-lixeira'><FontAwesomeIcon icon={faTrash} className='icone-lixeira' /></button>
               </div>
 
               <div className='box-ingrediente'>
                 <p className='nome-ingrediente'>Carne Bovina</p>
-                <button className='botao-lixeira'><FontAwesomeIcon icon={faTrash} className='icone-lixeira'/></button>
+                <button className='botao-lixeira'><FontAwesomeIcon icon={faTrash} className='icone-lixeira' /></button>
               </div>
 
               <div className='box-ingrediente'>
                 <p className='nome-ingrediente'>Carne Bovina</p>
-                <button className='botao-lixeira'><FontAwesomeIcon icon={faTrash} className='icone-lixeira'/></button>
+                <button className='botao-lixeira'><FontAwesomeIcon icon={faTrash} className='icone-lixeira' /></button>
               </div>
 
               <div className='box-ingrediente'>
                 <p className='nome-ingrediente'>Carne Bovina</p>
-                <button className='botao-lixeira'><FontAwesomeIcon icon={faTrash} className='icone-lixeira'/></button>
+                <button className='botao-lixeira'><FontAwesomeIcon icon={faTrash} className='icone-lixeira' /></button>
               </div>
 
             </div>
@@ -75,7 +77,7 @@ export default function CadastroReceita() {
 
         <div className='adicionar-passo'>
           <input type='text' className='input-passo' placeholder='Passo da Receita | Ex.: Cortar em cubinhos e cozinhar por 3 minutos...'></input>
-          <FontAwesomeIcon icon={faCirclePlus} className='botao-passo'/>
+          <FontAwesomeIcon icon={faCirclePlus} className='botao-passo' />
         </div>
         <div className='line-passos'></div>
 
@@ -84,7 +86,7 @@ export default function CadastroReceita() {
             <p className='numero-passo'>1</p>
           </div>
           <p className='texto-passo'>Cortar em cubinhos de 2 a 3 centímetros cúbicos</p>
-          <button className='delete-passo'><FontAwesomeIcon icon={faTrash} className='icone-lixeira-passo'/></button>
+          <button className='delete-passo'><FontAwesomeIcon icon={faTrash} className='icone-lixeira-passo' /></button>
         </div>
 
         <div className='box-passo'>
@@ -92,7 +94,7 @@ export default function CadastroReceita() {
             <p className='numero-passo'>2</p>
           </div>
           <p className='texto-passo'>Cozinhar por 5 minutos em água fervente</p>
-          <button className='delete-passo'><FontAwesomeIcon icon={faTrash} className='icone-lixeira-passo'/></button>
+          <button className='delete-passo'><FontAwesomeIcon icon={faTrash} className='icone-lixeira-passo' /></button>
         </div>
 
         <div className='box-passo'>
@@ -100,7 +102,7 @@ export default function CadastroReceita() {
             <p className='numero-passo'>3</p>
           </div>
           <p className='texto-passo'>Misturar com molho</p>
-          <button className='delete-passo'><FontAwesomeIcon icon={faTrash} className='icone-lixeira-passo'/></button>
+          <button className='delete-passo'><FontAwesomeIcon icon={faTrash} className='icone-lixeira-passo' /></button>
         </div>
 
         <div className='container-botao-enviar'>

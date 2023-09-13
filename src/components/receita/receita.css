@@ -7,6 +7,9 @@
     height: 100%;
     background-color: rgba(230, 230, 230, 0.788);
     overflow-y: scroll;
+    box-sizing: border-box;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .container-botao-home{
@@ -15,8 +18,8 @@
     justify-content: flex-end;
     align-items: center;    
     width: 90%;
-    margin-top: 2rem;
     margin-bottom: 2rem;
+    box-sizing: border-box;
 }
 
 .bloco-superior-receita{
