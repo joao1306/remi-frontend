@@ -10,6 +10,8 @@ export default function Sidebar() {
 
     const [isSidebarActive, setIsSidebarActive] = useState(false);
 
+    const usuarioLogado = JSON.parse(localStorage.getItem('loggedUser'));
+
     const toggleSidebar = () => {
         setIsSidebarActive(!isSidebarActive);
     };
@@ -23,8 +25,8 @@ export default function Sidebar() {
             <div className='display-foto-perfil'>
                 <img src='https://i.redd.it/z8iu5h4dvfy51.png' className='foto-perfil'></img>
             </div>
-            <h2 className='nome-perfil'>{auth.username}</h2>
-            <h4 className='titulo-perfil'>Titulo</h4>
+            <h2 className='nome-perfil'>{usuarioLogado.username}</h2>
+            <h4 className='titulo-perfil'>{usuarioLogado.titulo}</h4>
             <div className='line'></div>
             <div className='box-items-sidebar'>
                 

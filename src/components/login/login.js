@@ -8,6 +8,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import {AuthContext} from '../../contexts/AuthContext'
 
 
+{/* No ato de logar preciso que seja persistido tanto no localstorage quanto na context o objeto do usuario logado. */}
+
+
 export default function Login() {
 
   const navigate = useNavigate();
@@ -31,7 +34,14 @@ export default function Login() {
         
         if (response.data.username) {
           console.log('Usuário autenticado com sucesso', response.data);
+          
+          {/* persistindo o usuario logado na contextapi */}
           setAuth(response.data);
+
+          {/* persistindo o usuario logado no localstorage */}
+          localStorage.setItem('loggedUser', JSON.stringify(response.data));
+
+          {/* direcionando o usuario logado à tela de saudação */}
           navigate('/saudacao');
         } else {
           console.log('Autenticação falhou:', response.data.message);

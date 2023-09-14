@@ -145,7 +145,8 @@ a{
 .sidebar.active .titulo-perfil{
     color: white;
     font-weight: 300;
-    margin-top: 0;
+    font-size: .8rem;
+    margin-top: .3rem;
     width: 100%;
     margin-bottom: 0;
     display: block;

@@ -4,6 +4,10 @@ import logoremi from './logoremi.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faLock, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
+
+
+
+
 export default function Cadastro() {
   return (
     <div className='background-cadastro'>
