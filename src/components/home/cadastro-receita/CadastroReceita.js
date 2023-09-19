@@ -1,17 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './cadastroReceita.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCirclePlus, faTrash, faHouse } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCirclePlus, faTrash, faHouse } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
 
 export default function CadastroReceita() {
 
+  const usuarioLogado = JSON.parse(localStorage.getItem('loggedUser'));
 
-  {/* codigo responsável pela funcionalidade de adição e remoção de ingredientes á lista */ }
   const [arrIngredientes, setarrIngredientes] = useState([]);
   const [arrPassos, setarrPassos] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [inputPasso, setInputPasso] = useState('');
-
+  const [receita, setReceita] = useState({ idusuario: usuarioLogado.id, nome: '', categoria: '', descricao: '', ingredientes: arrIngredientes, passos: arrPassos, foto:''});
+  
+  useEffect(() => {
+    setReceita((prevRecipe) => ({
+      ...prevRecipe,
+      ingredientes: arrIngredientes,
+      passos: arrPassos
+    }));
+  }, [arrIngredientes, arrPassos]);
+  
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setReceita((prevRecipe) => ({ ...prevRecipe, [name]: value }));
+  };
+  
+  {/* codigo responsável pela funcionalidade de adição e remoção de ingredientes á lista */ }
   const adicionarIngrediente = () => {
 
     if (inputValue.trim() !== '') {
@@ -105,6 +121,37 @@ export default function CadastroReceita() {
 
   }
 
+  const persistirReceita = async (e) => {
+    e.preventDefault();
+
+    // Convertendo as arrays em strings JSON
+    const ingredientesJSON = JSON.stringify(arrIngredientes);
+    const passosJSON = JSON.stringify(arrPassos);
+
+    const novaReceita = {
+      idusuario: usuarioLogado.id,
+      nome: receita.nome,
+      categoria: receita.categoria,
+      descricao: receita.descricao,
+      ingredientes: ingredientesJSON,
+      passos: passosJSON,
+      foto: receita.foto
+    };
+
+    try {
+      const response = await axios.post("http://localhost:8800/cadastrar-receita", novaReceita);
+
+      if(response.status === 200) {
+        alert("Receita cadastrada com sucesso!");
+      } else {
+        console.log('Persistência falhou:', response.data.message);
+        alert("Sinto muito, há algum problema com os dados.");
+      }
+    } catch (error) {
+      console.log(error.response.data);
+      alert("Sinto muito, algo não está certo.");
+    }
+};
 
 
   return (
@@ -120,11 +167,11 @@ export default function CadastroReceita() {
         {/* bloco superior do formulario (nome, descricao, link, categoria e ingredientes) */}
         <div className='bloco-superior'>
           <div className='bloco-esquerdo'>
-            <input type='text' placeholder='Nome da Receita' className='input-bloco-superior-esquerdo'></input>
-            <textarea className='text-area' placeholder='Descrição aqui'></textarea>
+            <input type='text' name='nome' onChange={handleInputChange} placeholder='Nome da Receita' className='input-bloco-superior-esquerdo'></input>
+            <textarea className='text-area' name='descricao' onChange={handleInputChange} placeholder='Descrição aqui'></textarea>
             <div className='box-nome-categoria'>
-              <input type='text' placeholder='Cole o link de uma foto aqui' className='input-bloco-superior-esquerdo-link'></input>
-              <select className='select-categoria'>
+              <input type='text' name='foto' onChange={handleInputChange} placeholder='Cole o link de uma foto aqui' className='input-bloco-superior-esquerdo-link'></input>
+              <select className='select-categoria' name='categoria' onChange={handleInputChange}>
                 <option value="Carnes">Carnes</option>
                 <option value="Massas">Massas</option>
                 <option value="Doces">Doces</option>
@@ -159,7 +206,7 @@ export default function CadastroReceita() {
           {mapPassos(arrPassos)}
 
         <div className='container-botao-enviar'>
-          <button className='botao-enviar-formulario'>
+          <button className='botao-enviar-formulario' onClick={persistirReceita}>
             Salvar
           </button>
         </div>

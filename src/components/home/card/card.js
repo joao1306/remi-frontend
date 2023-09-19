@@ -1,56 +1,80 @@
-import React, {useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import './card.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios'
 
 export default function Card(prop) {
+
+  const [recipes, setRecipes] = useState([]);
+  const [user, setUser] = useState([]);
 
   function mediaNotas(arr) {
     let somaNotas = 0;
     const notas = JSON.parse(arr)
-  
+
     notas.map((nota) => {
       somaNotas = somaNotas + parseFloat(nota, 10);
     });
-  
+
     const numeroDeNotas = notas.length;
     const media = somaNotas / numeroDeNotas;
 
     return media;
   }
 
+  {/* código responsável por resgatar o usuario que escreveu a receita */ }
+
+  useEffect(() => {
+    async function fetchAutor() {
+      try {
+        const response = await axios.put('http://localhost:8800/autor-receita', { autor: prop.idusuario });
+        if (response.status === 200) {
+          const data = response.data;
+          setUser(data);
+        } else {
+          throw new Error('Erro ao buscar Usuario');
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  
+    fetchAutor();
+  }, []); 
+
   return (
-    
+
     <div className='card-box'>
-        <div className='display-foto'>
-          <img src={prop.foto} className='foto-card'></img>
+      <div className='display-foto'>
+        <img src={prop.foto} className='foto-card'></img>
+      </div>
+
+      <div className='box-titulo-subtitulo'>
+        <h2 className='titulo-card'>{prop.nome}</h2>
+        <h4 className='subtitulo-card'>{prop.categoria}</h4>
+      </div>
+
+      <div className='box-perfil-nota'>
+
+        <div className='display-foto-perfil'>
+          <img src='https://www.maryhelp.com.br/dicas/wp-content/uploads/2021/08/cozinheiro-x-dicas-para-encontrar-o-profissional-ideal-20210422170036.jpg.jpg' className='foto-perfil-card'></img>
         </div>
 
-        <div className='box-titulo-subtitulo'>
-          <h2 className='titulo-card'>{prop.nome}</h2>
-          <h4 className='subtitulo-card'>{prop.categoria}</h4>
+        <div className='box-nome-titulo'>
+          <h2 className='nome-usuario'>{user.username}</h2>
+          <h4 className='titulo-usuario'>{user.titulo}</h4>
         </div>
 
-        <div className='box-perfil-nota'>
-
-          <div className='display-foto-perfil'>
-            <img src='https://www.maryhelp.com.br/dicas/wp-content/uploads/2021/08/cozinheiro-x-dicas-para-encontrar-o-profissional-ideal-20210422170036.jpg.jpg' className='foto-perfil-card'></img>
-          </div>
-
-          <div className='box-nome-titulo'>
-            <h2 className='nome-usuario'>Hélio Batista</h2>
-            <h4 className='titulo-usuario'> Cozinheiro</h4>
-          </div>
-
-          <div className='box-nota'>
-            <FontAwesomeIcon icon={faStar} className='icone-estrela'/>
-            <h3 className='nota'>{mediaNotas(prop.notas)}</h3>
-          </div>
-
-
+        <div className='box-nota'>
+          <FontAwesomeIcon icon={faStar} className='icone-estrela' />
+          <h3 className='nota'>{mediaNotas(prop.notas)}</h3>
         </div>
-        
-        <button className='botao-card'>Vamos lá!</button>
+
+
+      </div>
+
+      <button className='botao-card'>Vamos lá!</button>
 
     </div>
   )
