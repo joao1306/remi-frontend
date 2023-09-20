@@ -35,6 +35,7 @@ export default function Lobby() {
             categoria={receita.categoria}
             notas={receita.notas}
             idusuario={receita.idusuario}
+            idreceita={receita.idreceitas}
         ></Card>))
     }
 

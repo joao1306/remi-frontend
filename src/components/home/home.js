@@ -48,7 +48,7 @@ export default function Home() {
             <Route path='/cadastro-receita' element={<CadastroReceita/>}/>
             <Route path='/melhores-receitas' element={''}/>
             <Route path='/editar-perfil' element={<Perfil/>}/>
-            <Route path='/receita' element={<Receita/>}/>
+            <Route path='/receita/:id' element={<Receita/>}/>
           </Routes>
 
       </div>

@@ -3,8 +3,11 @@ import './card.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 export default function Card(prop) {
+  
+  const navigate = useNavigate();
 
   const [recipes, setRecipes] = useState([]);
   const [user, setUser] = useState([]);
@@ -39,9 +42,15 @@ export default function Card(prop) {
         console.error(error);
       }
     }
-  
+
     fetchAutor();
-  }, []); 
+  }, []);
+
+
+  {/* codigo responsável por direcionar o usuário para a página da receita */ }
+  const irParaReceita = () => {
+    navigate(`/home/receita/${prop.idreceita}`)
+  }
 
   return (
 
@@ -74,7 +83,7 @@ export default function Card(prop) {
 
       </div>
 
-      <button className='botao-card'>Vamos lá!</button>
+      <button className='botao-card' onClick={irParaReceita}>Vamos lá!</button>
 
     </div>
   )
