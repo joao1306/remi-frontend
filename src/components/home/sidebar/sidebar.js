@@ -23,7 +23,7 @@ export default function Sidebar() {
         <div className={sidebarClasses}>
             <button className="btn-sidebar" onClick={toggleSidebar}><FontAwesomeIcon icon={faBars} /></button>
             <div className='display-foto-perfil'>
-                <img src='https://i.redd.it/z8iu5h4dvfy51.png' className='foto-perfil'></img>
+                <img src={usuarioLogado.foto} className='foto-perfil'></img>
             </div>
             <h2 className='nome-perfil'>{usuarioLogado.username}</h2>
             <h4 className='titulo-perfil'>{usuarioLogado.titulo}</h4>
