@@ -9,6 +9,7 @@ import CadastroReceita from './cadastro-receita/CadastroReceita';
 import axios from 'axios';
 import Lobby from './lobby/lobby';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import MinhasReceitas from './minhas-receitas/MinhasReceitas';
 
 export default function Home() {
 
@@ -46,6 +47,7 @@ export default function Home() {
           <Routes>
             <Route path='/lobby' element={<Lobby/>}/>
             <Route path='/cadastro-receita' element={<CadastroReceita/>}/>
+            <Route path='/minhas-receitas' element={<MinhasReceitas/>}/>
             <Route path='/melhores-receitas' element={''}/>
             <Route path='/editar-perfil' element={<Perfil/>}/>
             <Route path='/receita/:id' element={<Receita/>}/>

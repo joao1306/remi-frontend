@@ -35,7 +35,7 @@ export default function Sidebar() {
                         <p className='texto-item-sidebar'>Nova Receita</p>
                 </a>
 
-                <a href="/minhas-receitas" className='item-sidebar botao-minhas-receitas'>
+                <a href="/home/minhas-receitas" className='item-sidebar botao-minhas-receitas'>
                 <FontAwesomeIcon icon={faBook} className='icone-item-sidebar'/>
                     <p className='texto-item-sidebar'>Minhas Receitas</p>                    
                 </a>

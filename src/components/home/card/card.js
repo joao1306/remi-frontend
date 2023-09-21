@@ -67,7 +67,7 @@ export default function Card(prop) {
       <div className='box-perfil-nota'>
 
         <div className='display-foto-perfil'>
-          <img src='https://www.maryhelp.com.br/dicas/wp-content/uploads/2021/08/cozinheiro-x-dicas-para-encontrar-o-profissional-ideal-20210422170036.jpg.jpg' className='foto-perfil-card'></img>
+          <img src={user.foto} className='foto-perfil-card'></img>
         </div>
 
         <div className='box-nome-titulo'>

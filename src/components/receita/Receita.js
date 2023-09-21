@@ -11,6 +11,8 @@ export default function Receita() {
     const [autor, setAutor] = useState([]);
     const { id } = useParams();
 
+
+    // Código que acessa a receita pelo id
     useEffect(() => {
         async function getRecipe() {
             try {
@@ -29,7 +31,28 @@ export default function Receita() {
         getRecipe();
     }, [id]);
 
-    if (recipe.length === 0) {
+    // Código que acessa o autor pelo id
+    useEffect(() => {
+        if (recipe.length > 0) {
+            async function getAutor() {
+                try {
+                    const response = await axios.put('http://localhost:8800/autor-receita', { autor: recipe[0].idusuario });
+                    if (response.status === 200) {
+                        const data = response.data;
+                        setAutor(data);
+                    } else {
+                        throw new Error('Erro ao buscar autor');
+                    }
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+
+            getAutor();
+        }
+    }, [recipe]);
+
+    if (recipe.length === 0 || autor.length === 0) {
         return <div>Carregando...</div>;
     }
 
@@ -96,11 +119,11 @@ export default function Receita() {
                     <div id='bloco-perfil-botao-ingredientes'>
                         <div id='container-foto-nome'>
                             <div id='display-perfil'>
-                                <img id='foto-perfil' src='https://upload.wikimedia.org/wikipedia/commons/4/43/Foto_Perfil.jpg'></img>
+                                <img id='foto-perfil' src={autor.foto}></img>
                             </div>
                             <div id='nome-subtitulo'>
-                                <p id='nome-usuario'>Felipe Ramos</p>
-                                <p id='subtitulo-usuario'>Cozinheiro</p>
+                                <p id='nome-usuario'>{autor.username}</p>
+                                <p id='subtitulo-usuario'>{autor.titulo}</p>
                             </div>
                         </div>
                         <button id='botao-ingredientes'>Ingredientes</button>
