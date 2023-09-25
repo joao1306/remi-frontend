@@ -13,6 +13,7 @@
     background-color: rgb(240, 240, 240);
     border-radius: 1rem;
     font-family: 'Montserrat', sans-serif;
+    transition: all .3s ease;
 }
 
 .login-form{

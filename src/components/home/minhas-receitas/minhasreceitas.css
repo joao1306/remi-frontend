@@ -5,13 +5,108 @@
     justify-content: flex-start;
     width: 100%;
     height: 100%;
+    position: relative;
 }
 
 .container-botao-home-minhas-receitas{
     margin-top: 2.3rem;
     width: 90%;
     display: flex;
+    align-items: center;
     flex-direction: row;
     justify-content: flex-end;
     box-sizing: border-box;
 }
+
+.box-icones-categoria{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    transition: all .5s ease;
+}
+
+.icone-categoria{
+    color: white;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: all .3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    font-size: 1.2rem;
+}
+
+.icone-categoria:hover{
+    width: 140px;
+    border-radius: 3rem;
+    transition: all .1s ease;
+}
+
+.nome-categoria-icone{
+    display: none;
+    margin-left: 10px;
+    font-weight: 700;
+}
+
+.nome-categoria-icone:hover{
+    display: block;
+}
+
+.icone-categoria:hover > p{
+    display: block;
+}
+
+#carnes{
+    background-color: rgb(255, 186, 58);
+}
+
+#massas{
+    background-color: rgb(255, 67, 67);
+}
+
+#doces{
+    background-color: rgb(255, 99, 177);
+}
+
+#bebidas{
+    background-color: rgb(181, 228, 93);
+}
+
+#peixes{
+    background-color: rgb(53, 215, 255);
+}
+
+#secao-titulo{
+    width: 40%;
+    height: 10%;
+    color: rgb(19, 19, 19);
+    font-weight: 600;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid rgba(26, 26, 26, 0.267);
+}
+
+.display-receitas{
+    width: 98%;
+    height: 70%;
+    gap: .5%;
+    overflow: hidden;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding: 10px;
+    transition: all .3s ease;
+}
+
