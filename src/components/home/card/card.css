@@ -4,12 +4,13 @@
     align-items: center;
     min-width: 14.5vw;
     max-width: 14.5vw;
-    height: 95%;
+    height: 50vh;
     background-color: rgb(255, 255, 255);
     border-radius: .8rem;
     transition: all .3s ease;
     overflow: hidden;
     position: relative;
+    margin-bottom: .5%;
 }
 
 .card-box:hover{

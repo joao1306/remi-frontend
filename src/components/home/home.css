@@ -36,6 +36,7 @@ h1{
     align-items: center;
     justify-content: flex-end;
     position: relative;
+    margin-bottom: 0;
 }
 
 .barra-de-pesquisa{
@@ -74,18 +75,17 @@ h1{
 
 .box-titulo-secao{
     width: 95%;
-    height: 7vh;
+    height: 5vh;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     margin-top: .8rem;
-
 }
 
 .texto-titulo-secao{
-    color: rgb(0, 0, 0);
-    font-size: 2.2rem;
-    font-weight: 500;
+    color: rgb(20, 20, 20);
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
 .sec-categorias{
@@ -112,18 +112,13 @@ h1{
 
 .box-receitas{
     width: 95%;
-    height: 48vh;
+    height: 55vh;
     display: flex;
     flex-direction: row;
     align-items: center;
     overflow-x: scroll;
     white-space: nowrap;
-}
-
-
-
-.box-receitas > *:not(:first-child){
-    margin-left: 2rem;
+    gap: 1%;
 }
 
 

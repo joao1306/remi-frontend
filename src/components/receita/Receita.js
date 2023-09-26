@@ -60,7 +60,7 @@ export default function Receita() {
     const mapPassos = (arrPassos) => {
         return arrPassos.map((passo, index) => (
 
-            <div className='box-passo'>
+            <div className='box-passo-receita'>
 
                 <div className='display-ordinal'>
                     <p className='numero-passo'>{index + 1}</p>

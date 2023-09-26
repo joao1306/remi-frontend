@@ -8,10 +8,23 @@ import { faHouse, faDrumstickBite, faWheatAwn, faCandyCane, faMartiniGlassCitrus
 export default function MinhasReceitas() {
 
     const [recipes, setRecipes] = useState([]);
+    const [categoriaSelecionada, setCategoriaSelecionada] = useState('all');
+    const usuarioLogado = JSON.parse(localStorage.getItem('loggedUser'));
 
-    async function fetchRecipes() {
+    const definirCategoria = (categoria) => {
+
+        if(categoria === categoriaSelecionada){
+            setCategoriaSelecionada('all')
+        }else{
+            setCategoriaSelecionada(categoria)
+        }
+
+    }
+
+
+    async function fetchMyRecipes() {
         try {
-            const response = await axios.get('http://localhost:8800/recipes');
+            const response = await axios.get(`http://localhost:8800/my-recipes?userId=${usuarioLogado.id}`);
             if (response.status === 200) {
                 const data = response.data;
                 setRecipes(data);
@@ -23,7 +36,7 @@ export default function MinhasReceitas() {
         }
     }
 
-    fetchRecipes();
+    fetchMyRecipes();
 
     function mapReceitas(arr) {
         return arr.map((receita, index) => (<Card className='card-receita-minhas-receitas' key={index}
@@ -53,27 +66,27 @@ export default function MinhasReceitas() {
 
             <div className='box-icones-categoria'>
 
-                <div id='carnes' className='icone-categoria'>
+                <div id='carnes' className='icone-categoria' onClick={() => definirCategoria('carnes')}>
                     <FontAwesomeIcon icon={faDrumstickBite} />
                     <p className='nome-categoria-icone'>Carnes</p>
                 </div>
 
-                <div id='massas' className='icone-categoria'>
+                <div id='massas' className='icone-categoria' onClick={() => definirCategoria('massas')}>
                     <FontAwesomeIcon icon={faWheatAwn} />
                     <p className='nome-categoria-icone'>Massas</p>
                 </div>
 
-                <div id='doces' className='icone-categoria'>
+                <div id='doces' className='icone-categoria' onClick={() => definirCategoria('doces')}>
                     <FontAwesomeIcon icon={faCandyCane} />
                     <p className='nome-categoria-icone'>Doces</p>
                 </div>
 
-                <div id='bebidas' className='icone-categoria'>
+                <div id='bebidas' className='icone-categoria' onClick={() => definirCategoria('bebidas')}>
                     <FontAwesomeIcon icon={faMartiniGlassCitrus} />
                     <p className='nome-categoria-icone'>Bebidas</p>
                 </div>
 
-                <div id='peixes' className='icone-categoria'>
+                <div id='peixes' className='icone-categoria' onClick={() => definirCategoria('peixes')}>
                     <FontAwesomeIcon icon={faFishFins} />
                     <p className='nome-categoria-icone'>Peixes</p>
                 </div>
