@@ -47,6 +47,8 @@ h1{
     border-radius: 5rem;
     padding-left: 1.5rem;
     border: none;
+    outline: none;
+    color: white;
 }
 
 .barra-de-pesquisa::placeholder{

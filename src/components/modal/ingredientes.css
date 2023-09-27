@@ -1,0 +1,58 @@
+.container-externo-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Use 100% para ocupar toda a largura do elemento pai */
+    height: 100vh; /* Use 100vh para ocupar 100% da altura da janela */
+    position: fixed; /* Usar 'fixed' em vez de 'absolute' para garantir que o modal permaneça no centro da janela */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    backdrop-filter: blur(4px);
+}
+
+.container-ingredientes-receita {
+    width: 50%; /* Defina a largura do modal interno */
+    max-width: 400px; /* Use um valor máximo para evitar que o modal fique muito largo */
+    height: 60%;
+    border-radius: 1rem;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column; /* Use flex-direction: column para empilhar elementos verticalmente */
+    align-items: center; /* Ajuste o alinhamento vertical conforme necessário */
+    padding: 20px; /* Adicione algum espaço interno para o conteúdo */
+    box-shadow: 0px 0px 7px 2px rgba(10, 10, 10, 0.185);
+    position: relative;
+}
+
+#fechar-modal {
+    width: 40px; /* Use 100% para ocupar toda a largura do modal interno */
+    height: 40px; /* Defina uma altura fixa ou use porcentagem conforme necessário */
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+#fechar-modal:hover {
+    background-color: orange;
+    color: white;
+}
+
+#titulo-ingredientes{
+    margin-top: 10%;
+    width: 60%;
+    height: 10%;
+    border-bottom: 2px solid darkgrey;
+}
+
+#display-ingredientes{
+    width: 100%;
+    height: 75%;
+    overflow-y: scroll;
+}

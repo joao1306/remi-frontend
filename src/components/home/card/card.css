@@ -44,15 +44,16 @@
 }
 
 .titulo-card{
-    font-size: 15px;
+    font-size: 2.1vh;
     margin-bottom: 0;
     font-weight: 900;
 }
 
 .subtitulo-card{
-    font-size: 10px;
+    font-size: 1.8vh;
     margin-top: 0;
-    font-weight: 700;
+    font-weight: 600;
+    color: rgb(54, 54, 54);
 }
 
 .box-perfil-nota{

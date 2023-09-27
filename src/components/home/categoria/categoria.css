@@ -20,20 +20,21 @@
 .display-img{
     width: 50%;
     height: 100%;
-    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     right: 0;
     position: absolute;    
     overflow: hidden;
+    transition: all .3s ease;
 }
 
 .titulo-categoria{
     font-weight: 600;
     color: white;
+    font-size: 2.5vh;
     margin-left: 5%;
-    font-size: 1.2rem;
+    transition: all .4s ease;
 }
 
 .imagem{
@@ -59,4 +60,14 @@
 
 .azul{
     background-color: rgb(53, 215, 255);
+}
+
+.categoria-box:hover > .display-img > .imagem{
+    transition: all .4s ease;
+    margin-left: 400%;
+}
+
+.categoria-box:hover > .titulo-categoria{
+    transition: all .4s ease;
+    margin-left: 33%;
 }

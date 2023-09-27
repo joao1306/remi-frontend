@@ -4,13 +4,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHouse, faStar, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import Ingredientes from '../modal/Ingredientes'
 
 export default function Receita() {
 
     const [recipe, setRecipe] = useState([]);
     const [autor, setAutor] = useState([]);
     const { id } = useParams();
+    const [modalOpen, setModalOpen] = useState( false );
+    const [listaIngredientes, setListaIngredientes] = useState([]);
 
+    const openModal = (ingredientes) => {
+        setListaIngredientes(ingredientes);
+        setModalOpen(true);
+      }
+    
+      const closeModal = () => {
+        setModalOpen(false);
+      }
 
     // Código que acessa a receita pelo id
     useEffect(() => {
@@ -126,7 +137,7 @@ export default function Receita() {
                                 <p id='subtitulo-usuario'>{autor.titulo}</p>
                             </div>
                         </div>
-                        <button id='botao-ingredientes'>Ingredientes</button>
+                        <button id='botao-ingredientes' onClick= {() => openModal(listaIngredientes)}>Ingredientes</button>
                     </div>
                 </div>
             </div>
@@ -136,7 +147,7 @@ export default function Receita() {
             {/* a partir daqui serão renderizadas as etapas da receita */}
 
             {mapPassos(JSON.parse(recipe[0].passos))}
-            
+            {modalOpen &&(<Ingredientes ingredientes={listaIngredientes} onClose={closeModal}/>)}
         </div>
 
     )
