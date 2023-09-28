@@ -18,7 +18,7 @@
     max-width: 400px; /* Use um valor máximo para evitar que o modal fique muito largo */
     height: 60%;
     border-radius: 1rem;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(241, 241, 241);
     display: flex;
     flex-direction: column; /* Use flex-direction: column para empilhar elementos verticalmente */
     align-items: center; /* Ajuste o alinhamento vertical conforme necessário */
@@ -31,6 +31,9 @@
     width: 40px; /* Use 100% para ocupar toda a largura do modal interno */
     height: 40px; /* Defina uma altura fixa ou use porcentagem conforme necessário */
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: none;
     outline: none;
     position: absolute;
@@ -53,6 +56,77 @@
 
 #display-ingredientes{
     width: 100%;
-    height: 75%;
+    height: 60%;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#display-ingredientes::-webkit-scrollbar {
+    width: 0;
+  }
+
+.ingrediente-display-ingredientes{
+    width: 90%;
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding-inline: 5%;
+    border-radius: 1rem;
+}
+
+.ingrediente-display-ingredientes:hover{
+    background-color: rgb(255, 255, 255);
+}
+
+.botao-checkar-ingrediente{
+    width: 20px;
+    height: 20px;
+    border-radius: .2rem;
+    border: none;
+    outline: none;
+    background-color: rgb(221, 221, 221);
+    cursor: pointer;
+    transition: all .2s ease;
+    color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao-checkar-ingrediente:hover{
+    color: rgb(26, 26, 26);
+}
+
+.checked{
+    background-color: orange;
+    color:white;
+}
+
+#botao-tudo-pronto{
+    margin-top: 1rem;
+    width: 40%;
+    height: 10%;
+    background-color: orange;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 10rem;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all .3s ease;
+}
+
+#botao-tudo-pronto:hover{
+    width: 45%;
+}
+
+#botao-tudo-pronto:active{
+    width: 43%;
 }

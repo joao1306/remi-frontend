@@ -115,6 +115,11 @@
     margin-bottom: .6rem;
 }
 
+.texto-descricao-receita::-webkit-scrollbar {
+    width: 0;
+  }
+
+
 #bloco-perfil-botao-ingredientes{
     height: 19%;
     display: flex;

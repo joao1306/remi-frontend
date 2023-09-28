@@ -54,15 +54,15 @@ export default function Lobby() {
             <div className='sec-categorias'>
                 <div className='box-categorias'>
 
-                    <Categoria img='https://supermercadosrondon.com.br/guiadecarnes/images/postagens/as_7_melhores_carnes_para_churrasco_21-05-2019.jpg' cor='laranja' titulo='Carnes'></Categoria>
+                    <Categoria img='https://static.vecteezy.com/system/resources/previews/024/320/541/non_2x/delicious-barbecued-spare-ribs-tasty-bbq-meat-isolated-on-transparent-background-generate-ai-free-png.png' cor='laranja' titulo='Carnes'></Categoria>
 
-                    <Categoria img='https://www.receiteria.com.br/wp-content/uploads/receitas-de-massas-0.jpg' cor='vermelho' titulo='Massas'></Categoria>
+                    <Categoria img='https://combrasil.com/wp-content/uploads/2022/11/lamen-carne-72-2.png' cor='vermelho' titulo='Massas'></Categoria>
 
-                    <Categoria img='https://vitat.com.br/receitas/images/recipeshandler.jpg?id=80707&tipo=r&default=s' cor='rosa' titulo='Doces'></Categoria>
+                    <Categoria img='https://cdn.sodiedoces.com.br/wp-content/uploads/2021/09/25112651/20412_fotos_23-sodie_bolo_inteiro_540x400px23.png' cor='rosa' titulo='Doces'></Categoria>
 
-                    <Categoria img='https://receitinhas.com.br/wp-content/uploads/2017/09/Passion-Fruit-Juice.jpg' cor='verde' titulo='Bebidas'></Categoria>
+                    <Categoria img='https://almmediaprod.s3.me-south-1.amazonaws.com/BrandCategoryMapping/juices8162022100235AM.png' cor='verde' titulo='Bebidas'></Categoria>
 
-                    <Categoria img='https://img.freepik.com/fotos-gratis/prato-de-frutos-do-mar-frescos-com-sashimi-de-sushi-e-wasabi-gerado-por-ia_188544-14075.jpg?w=2000' cor='azul' titulo='Peixes'></Categoria>
+                    <Categoria img='https://static.wixstatic.com/media/4c4a08_4dc1b11fddd84be2ac282ded5d6a994d~mv2.png/v1/fill/w_598,h_448,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Novo%20Combo%20P%20Compartilhar%20Dueto%20IFOOD%201200x900px.png' cor='azul' titulo='Peixes'></Categoria>
 
                 </div>
             </div>

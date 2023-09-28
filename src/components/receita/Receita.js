@@ -137,7 +137,7 @@ export default function Receita() {
                                 <p id='subtitulo-usuario'>{autor.titulo}</p>
                             </div>
                         </div>
-                        <button id='botao-ingredientes' onClick= {() => openModal(listaIngredientes)}>Ingredientes</button>
+                        <button id='botao-ingredientes' onClick= {() => openModal(JSON.parse(recipe[0].ingredientes))}>Ingredientes</button>
                     </div>
                 </div>
             </div>
@@ -147,7 +147,7 @@ export default function Receita() {
             {/* a partir daqui serão renderizadas as etapas da receita */}
 
             {mapPassos(JSON.parse(recipe[0].passos))}
-            {modalOpen &&(<Ingredientes ingredientes={listaIngredientes} onClose={closeModal}/>)}
+            {modalOpen &&(<Ingredientes ingredientes={listaIngredientes} onClose={closeModal} nome={recipe[0].nome}/>)}
         </div>
 
     )
