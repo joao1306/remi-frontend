@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './receita.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHouse, faStar, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faHouse, faStar } from '@fortawesome/free-solid-svg-icons'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Ingredientes from '../modal/Ingredientes'
@@ -11,17 +11,17 @@ export default function Receita() {
     const [recipe, setRecipe] = useState([]);
     const [autor, setAutor] = useState([]);
     const { id } = useParams();
-    const [modalOpen, setModalOpen] = useState( false );
+    const [modalOpen, setModalOpen] = useState(false);
     const [listaIngredientes, setListaIngredientes] = useState([]);
 
     const openModal = (ingredientes) => {
         setListaIngredientes(ingredientes);
         setModalOpen(true);
-      }
-    
-      const closeModal = () => {
+    }
+
+    const closeModal = () => {
         setModalOpen(false);
-      }
+    }
 
     // Código que acessa a receita pelo id
     useEffect(() => {
@@ -89,16 +89,39 @@ export default function Receita() {
     function mediaNotas(arr) {
         let somaNotas = 0;
         const notas = JSON.parse(arr)
-    
+
         notas.map((nota) => {
-          somaNotas = somaNotas + parseFloat(nota, 10);
+            somaNotas = somaNotas + parseFloat(nota, 10);
         });
-    
+
         const numeroDeNotas = notas.length;
         const media = somaNotas / numeroDeNotas;
-    
+
         return media;
-      }
+    }
+
+    const estrelas = document.querySelectorAll('.icone-estrela-avaliacao');
+
+    estrelas.forEach((estrela) => {
+        estrela.addEventListener('mouseover', () => {
+            const estrelaAtual = estrela.id;
+            estrelas.forEach((s) => {
+                if (s.id <= estrelaAtual) {
+                    s.classList.add('active');
+                } else {
+                    s.classList.remove('active');
+                }
+            });
+        });
+    });
+
+    
+    const avaliarReceita = (nota) => {
+        const boxAvaliacao = document.getElementById('#box-avaliacao');
+
+        boxAvaliacao.classList.add('avaliado');
+
+    }
 
 
     return (
@@ -137,7 +160,7 @@ export default function Receita() {
                                 <p id='subtitulo-usuario'>{autor.titulo}</p>
                             </div>
                         </div>
-                        <button id='botao-ingredientes' onClick= {() => openModal(JSON.parse(recipe[0].ingredientes))}>Ingredientes</button>
+                        <button id='botao-ingredientes' onClick={() => openModal(JSON.parse(recipe[0].ingredientes))}>Ingredientes</button>
                     </div>
                 </div>
             </div>
@@ -147,7 +170,19 @@ export default function Receita() {
             {/* a partir daqui serão renderizadas as etapas da receita */}
 
             {mapPassos(JSON.parse(recipe[0].passos))}
-            {modalOpen &&(<Ingredientes ingredientes={listaIngredientes} onClose={closeModal} nome={recipe[0].nome}/>)}
+            {modalOpen && (<Ingredientes ingredientes={listaIngredientes} onClose={closeModal} nome={recipe[0].nome} />)}
+
+            <div className='box-avaliacao-receita' id='box-avaliacao'>
+                <div className='box-estrelas'>
+                    <button id='estrela-1' className='icone-estrela-avaliacao' onClick={avaliarReceita} ><FontAwesomeIcon icon={faStar} /></button>
+                    <button id='estrela-2' className='icone-estrela-avaliacao' ><FontAwesomeIcon icon={faStar} /></button>
+                    <button id='estrela-3' className='icone-estrela-avaliacao' ><FontAwesomeIcon icon={faStar} /></button>
+                    <button id='estrela-4' className='icone-estrela-avaliacao' ><FontAwesomeIcon icon={faStar} /></button>
+                    <button id='estrela-5' className='icone-estrela-avaliacao' ><FontAwesomeIcon icon={faStar} /></button>
+                </div>
+            </div>
+
+
         </div>
 
     )

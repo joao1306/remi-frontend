@@ -41,6 +41,7 @@
     width: auto;
     height: 100%;
     margin-left: 55%;
+    transition: all .3s ease;
 }
 
 .laranja{
