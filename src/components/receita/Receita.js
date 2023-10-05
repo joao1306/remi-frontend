@@ -13,6 +13,7 @@ export default function Receita() {
     const { id } = useParams();
     const [modalOpen, setModalOpen] = useState(false);
     const [listaIngredientes, setListaIngredientes] = useState([]);
+    const [avaliada, setAvaliada] = useState(false);
 
     const openModal = (ingredientes) => {
         setListaIngredientes(ingredientes);
@@ -115,13 +116,45 @@ export default function Receita() {
         });
     });
 
-    
+
     const avaliarReceita = (nota) => {
-        const boxAvaliacao = document.getElementById('#box-avaliacao');
 
-        boxAvaliacao.classList.add('avaliado');
+        const novaNota = nota;
+        const idDaReceita = id;
 
-    }
+        const requestBody = {
+            idDaReceita: idDaReceita,
+            nota: novaNota
+        };
+
+        axios.put('http://localhost:8800/persistir-nota', requestBody)
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+
+        console.log(requestBody.idDaReceita)
+        console.log(requestBody.nota)
+
+        // Marque a receita como avaliada
+        setAvaliada(true);
+
+        // Adicione a classe "avaliado" ao elemento de ID "box-avaliacao"
+        const boxAvaliacao = document.getElementById('box-avaliacao');
+        if (boxAvaliacao) {
+            boxAvaliacao.classList.add('avaliado');
+        }
+
+        // Adicione a classe "avaliado" ao elemento de ID "box-avaliacao"
+        const retornoAvaliacao = document.getElementById('retorno-avaliacao');
+        if (retornoAvaliacao) {
+            retornoAvaliacao.classList.remove('retorno-avaliacao')
+            retornoAvaliacao.classList.add('mostrar');
+        }
+    };
+
 
 
     return (
@@ -173,15 +206,15 @@ export default function Receita() {
             {modalOpen && (<Ingredientes ingredientes={listaIngredientes} onClose={closeModal} nome={recipe[0].nome} />)}
 
             <div className='box-avaliacao-receita' id='box-avaliacao'>
-                <div className='box-estrelas'>
-                    <button id='estrela-1' className='icone-estrela-avaliacao' onClick={avaliarReceita} ><FontAwesomeIcon icon={faStar} /></button>
-                    <button id='estrela-2' className='icone-estrela-avaliacao' ><FontAwesomeIcon icon={faStar} /></button>
-                    <button id='estrela-3' className='icone-estrela-avaliacao' ><FontAwesomeIcon icon={faStar} /></button>
-                    <button id='estrela-4' className='icone-estrela-avaliacao' ><FontAwesomeIcon icon={faStar} /></button>
-                    <button id='estrela-5' className='icone-estrela-avaliacao' ><FontAwesomeIcon icon={faStar} /></button>
+                <div className={`box-estrelas ${avaliada ? 'avaliado' : ''}`}>
+                    <button id='estrela-1' className='icone-estrela-avaliacao' onClick={() => avaliarReceita("1")} ><FontAwesomeIcon icon={faStar} /></button>
+                    <button id='estrela-2' className='icone-estrela-avaliacao' onClick={() => avaliarReceita("2")} ><FontAwesomeIcon icon={faStar} /></button>
+                    <button id='estrela-3' className='icone-estrela-avaliacao' onClick={() => avaliarReceita("3")} ><FontAwesomeIcon icon={faStar} /></button>
+                    <button id='estrela-4' className='icone-estrela-avaliacao' onClick={() => avaliarReceita("4")} ><FontAwesomeIcon icon={faStar} /></button>
+                    <button id='estrela-5' className='icone-estrela-avaliacao' onClick={() => avaliarReceita("5")} ><FontAwesomeIcon icon={faStar} /></button>
                 </div>
             </div>
-
+            <p id="retorno-avaliacao" className='retorno-avaliacao'>Receita Avaliada!</p>
 
         </div>
 

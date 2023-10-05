@@ -261,3 +261,12 @@
 .avaliado{
     display: none;
 }
+
+.retorno-avaliacao{
+    display: none;
+}
+
+.mostrar{
+    color: grey;
+    font-weight: 300;
+}

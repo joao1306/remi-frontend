@@ -22,8 +22,10 @@ export default function Card(prop) {
 
     const numeroDeNotas = notas.length;
     const media = somaNotas / numeroDeNotas;
+    const mediaFormatada = media.toFixed(2);
+    const mediaString = mediaFormatada.toString().replace(/(\.0*|(?<=(\..*[^0]))0*)$/, '');
 
-    return media;
+    return mediaString;
   }
 
   {/* código responsável por resgatar o usuario que escreveu a receita */ }
