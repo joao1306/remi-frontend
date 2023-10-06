@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './receita.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHouse, faStar } from '@fortawesome/free-solid-svg-icons'
+import { faHouse, faStar, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Ingredientes from '../modal/Ingredientes'
+import Delete from '../modal/Delete'
 
 export default function Receita() {
 
@@ -12,6 +13,7 @@ export default function Receita() {
     const [autor, setAutor] = useState([]);
     const { id } = useParams();
     const [modalOpen, setModalOpen] = useState(false);
+    const [modalDeleteOpen, setModalDeleteOpen] = useState(false);
     const [listaIngredientes, setListaIngredientes] = useState([]);
     const [avaliada, setAvaliada] = useState(false);
 
@@ -22,6 +24,14 @@ export default function Receita() {
 
     const closeModal = () => {
         setModalOpen(false);
+    }
+
+    const openModalDelete = () => {
+        setModalDeleteOpen(true);
+    }
+
+    const closeModalDelete = () => {
+        setModalDeleteOpen(false);
     }
 
     // Código que acessa a receita pelo id
@@ -128,12 +138,12 @@ export default function Receita() {
         };
 
         axios.put('http://localhost:8800/persistir-nota', requestBody)
-        .then(response => {
-            console.log(response);
-        })
-        .catch(error => {
-            console.error(error);
-        });
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error => {
+                console.error(error);
+            });
 
         console.log(requestBody.idDaReceita)
         console.log(requestBody.nota)
@@ -155,12 +165,41 @@ export default function Receita() {
         }
     };
 
+    const checarAutor = () => {
+        const idAutorReceita = recipe[0].idusuario;
+        const usuarioLogado = JSON.parse(localStorage.getItem('loggedUser'));
+        const idUsuarioLogado = usuarioLogado.id;
 
+        if (idAutorReceita === idUsuarioLogado) {
+            return (
+                <div id='delete'>
+                    <button id='botao-deletar-receita' className='icone-categoria' onClick={() => openModalDelete()}>
+                        <p className='nome-categoria-icone' id='texto-botao-deletar' >Excluir Receita</p>
+                        <FontAwesomeIcon icon={faTrash} id='icone-lixeira' />
+                    </button>
+                </div>
+            );
+        } else {
+            return (
+                <div id='retorno-funcao-checar-autor'>
+                    <div className='box-avaliacao-receita' id='box-avaliacao'>
+                        <div className={`box-estrelas ${avaliada ? 'avaliado' : ''}`}>
+                            <button id='estrela-1' className='icone-estrela-avaliacao' onClick={() => avaliarReceita("1")} ><FontAwesomeIcon icon={faStar} /></button>
+                            <button id='estrela-2' className='icone-estrela-avaliacao' onClick={() => avaliarReceita("2")} ><FontAwesomeIcon icon={faStar} /></button>
+                            <button id='estrela-3' className='icone-estrela-avaliacao' onClick={() => avaliarReceita("3")} ><FontAwesomeIcon icon={faStar} /></button>
+                            <button id='estrela-4' className='icone-estrela-avaliacao' onClick={() => avaliarReceita("4")} ><FontAwesomeIcon icon={faStar} /></button>
+                            <button id='estrela-5' className='icone-estrela-avaliacao' onClick={() => avaliarReceita("5")} ><FontAwesomeIcon icon={faStar} /></button>
+                        </div>
+                    </div>
+                    <p id="retorno-avaliacao" className='retorno-avaliacao'>Receita Avaliada!</p>
+                </div>
+            );
+        }
+    }
 
     return (
 
         <div className='screen-receita'>
-
             <div className='container-botao-home'>
                 <a href='/home/lobby' className='botao-home'>
                     <FontAwesomeIcon icon={faHouse} />
@@ -204,18 +243,8 @@ export default function Receita() {
 
             {mapPassos(JSON.parse(recipe[0].passos))}
             {modalOpen && (<Ingredientes ingredientes={listaIngredientes} onClose={closeModal} nome={recipe[0].nome} />)}
-
-            <div className='box-avaliacao-receita' id='box-avaliacao'>
-                <div className={`box-estrelas ${avaliada ? 'avaliado' : ''}`}>
-                    <button id='estrela-1' className='icone-estrela-avaliacao' onClick={() => avaliarReceita("1")} ><FontAwesomeIcon icon={faStar} /></button>
-                    <button id='estrela-2' className='icone-estrela-avaliacao' onClick={() => avaliarReceita("2")} ><FontAwesomeIcon icon={faStar} /></button>
-                    <button id='estrela-3' className='icone-estrela-avaliacao' onClick={() => avaliarReceita("3")} ><FontAwesomeIcon icon={faStar} /></button>
-                    <button id='estrela-4' className='icone-estrela-avaliacao' onClick={() => avaliarReceita("4")} ><FontAwesomeIcon icon={faStar} /></button>
-                    <button id='estrela-5' className='icone-estrela-avaliacao' onClick={() => avaliarReceita("5")} ><FontAwesomeIcon icon={faStar} /></button>
-                </div>
-            </div>
-            <p id="retorno-avaliacao" className='retorno-avaliacao'>Receita Avaliada!</p>
-
+            {checarAutor()}
+            {modalDeleteOpen && (<Delete id={recipe[0].idreceitas} onClose={closeModalDelete}/>)}
         </div>
 
     )

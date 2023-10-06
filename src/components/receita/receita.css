@@ -1,4 +1,4 @@
-.screen-receita{
+.screen-receita {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -10,23 +10,24 @@
     box-sizing: border-box;
     padding-top: 2rem;
     padding-bottom: 2rem;
+    position: relative;
 }
 
-.container-botao-home{
+.container-botao-home {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    align-items: center;    
+    align-items: center;
     width: 90%;
     margin-bottom: 2rem;
     box-sizing: border-box;
 }
 
-.bloco-superior-receita{
+.bloco-superior-receita {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-direction: row;    
+    flex-direction: row;
     width: 90%;
     height: 50%;
     box-sizing: border-box;
@@ -34,7 +35,7 @@
     border-radius: 1rem;
 }
 
-.display-foto-receita{
+.display-foto-receita {
     width: 49.2%;
     height: 100%;
     border-radius: 1rem;
@@ -44,22 +45,22 @@
     align-items: center;
 }
 
-.foto-receita{
+.foto-receita {
     width: 100%;
 }
 
-.bloco-info-receita{
+.bloco-info-receita {
     width: 49.2%;
     height: 100%;
     box-sizing: border-box;
-    padding-inline:1.5rem;
+    padding-inline: 1.5rem;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.nome-nota-receita{
+.nome-nota-receita {
     width: 100%;
     height: 5rem;
     display: flex;
@@ -68,7 +69,7 @@
     justify-content: space-between;
 }
 
-#box-titulo-receita{
+#box-titulo-receita {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -76,19 +77,19 @@
     height: 100%;
 }
 
-#subtitulo-receita{
+#subtitulo-receita {
     margin-top: 0;
     margin-bottom: 0;
     font-weight: 700;
 }
 
-#nome-receita{
+#nome-receita {
     font-size: 2.5rem;
     margin-bottom: 0;
     margin-top: 0;
 }
 
-#avaliacao{
+#avaliacao {
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -96,17 +97,17 @@
     width: 80px;
 }
 
-#nota{
+#nota {
     font-size: 1.5rem;
     font-weight: 700;
 }
 
-#icone-estrela-receita{
+#icone-estrela-receita {
     color: orange;
     font-size: 1.5rem;
 }
 
-.texto-descricao-receita{
+.texto-descricao-receita {
     width: 100%;
     height: 40%;
     overflow-y: scroll;
@@ -117,10 +118,10 @@
 
 .texto-descricao-receita::-webkit-scrollbar {
     width: 0;
-  }
+}
 
 
-#bloco-perfil-botao-ingredientes{
+#bloco-perfil-botao-ingredientes {
     height: 19%;
     display: flex;
     flex-direction: row;
@@ -129,52 +130,53 @@
     position: relative;
 }
 
-#display-perfil{
+#display-perfil {
     width: 4rem;
     height: 4rem;
-    background-color:white;
+    background-color: white;
     border-radius: 50%;
     overflow: hidden;
 }
 
-#foto-perfil{
+#foto-perfil {
     width: 120%;
 }
 
-#nome-subtitulo{
+#nome-subtitulo {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-#container-foto-nome{
+#container-foto-nome {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-#nome-subtitulo{
+#nome-subtitulo {
     width: 15rem;
     box-sizing: border-box;
     padding-left: 1rem;
-    
+
 }
 
-#nome-usuario, #subtitulo-usuario{
+#nome-usuario,
+#subtitulo-usuario {
     margin: 0;
 }
 
-#nome-usuario{
+#nome-usuario {
     font-size: 1.3rem;
     font-weight: 700;
 }
 
-#subtitulo-usuario{
+#subtitulo-usuario {
     font-size: .9rem;
 }
 
-#botao-ingredientes{
-    width:35%;
+#botao-ingredientes {
+    width: 35%;
     height: 65%;
     border-radius: 5rem;
     border: none;
@@ -187,17 +189,17 @@
     cursor: pointer;
 }
 
-#botao-ingredientes:hover{
+#botao-ingredientes:hover {
     background-color: rgb(255, 180, 40);
 }
 
-#titulo-secao-passos{
+#titulo-secao-passos {
     margin: 0;
     margin-top: 1.5rem;
-    margin-bottom:1.5rem;
+    margin-bottom: 1.5rem;
 }
 
-.container-passos-receita{
+.container-passos-receita {
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -205,11 +207,11 @@
     align-items: center;
     margin-bottom: 1rem;
     box-sizing: border-box;
-    padding-inline:1.5rem;
+    padding-inline: 1.5rem;
 }
 
 
-.box-passo-receita{
+.box-passo-receita {
     width: 90%;
     margin-bottom: 1rem;
     height: 5rem;
@@ -219,15 +221,15 @@
     border-radius: 1rem;
     background-color: rgb(255, 255, 255);
     box-sizing: border-box;
-    padding-inline:1.2rem;
+    padding-inline: 1.2rem;
 }
 
-.box-passo-receita:hover{
+.box-passo-receita:hover {
     box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.185);
     transition: all .3s ease;
 }
 
-.box-estrelas{
+.box-estrelas {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -236,7 +238,7 @@
     height: 5rem;
 }
 
-.icone-estrela-avaliacao{
+.icone-estrela-avaliacao {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -252,21 +254,74 @@
 
 .icone-estrela-avaliacao.active {
     color: orange;
-  }
+}
 
 .icone-estrela-avaliacao.active {
-  color: orange;
+    color: orange;
 }
 
-.avaliado{
+.avaliado {
     display: none;
 }
 
-.retorno-avaliacao{
+.retorno-avaliacao {
     display: none;
 }
 
-.mostrar{
+.mostrar {
     color: grey;
     font-weight: 300;
+}
+
+#delete {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#retorno-funcao-checar-autor {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#botao-deletar-receita {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    transition: all .1s ease;
+    background-color: rgb(255, 67, 67);
+    outline: none;
+    border: none;
+}
+
+#botao-deletar-receita:hover {
+    width: 12rem;
+    height: 3rem;
+    border-radius: 3rem;
+    transition: all .1s ease;
+    background-color: rgb(255, 67, 67);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#texto-botao-deletar {
+    display: none;
+    transition: all .2s ease;
+    margin: 0;
+    white-space: nowrap;
+}
+
+#botao-deletar-receita:hover>#icone-lixeira {
+    display: none;
+}
+
+#botao-deletar-receita:hover>#texto-botao-deletar {
+    display: block;
+    transition: all .2s ease;
 }
