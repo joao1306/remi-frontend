@@ -2,8 +2,27 @@ import React, { useState } from 'react';
 import './delete.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faX, faCheck, faTrash } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios'
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Delete({ id, onClose}) {
+
+    const navigate = useNavigate();
+
+    async function delRecipe() {
+        try {
+            const response = await axios.delete(`http://localhost:8800/deletar-receita?recipeId=${id}`);
+            if (response.status === 200) {
+                console.log('Deletada com sucesso!')
+                navigate('/home/minhas-receitas')
+            } else {
+                throw new Error('Erro ao deletar receita.');
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
 
         return (
             <div className='container-externo-modal'>
@@ -14,7 +33,7 @@ export default function Delete({ id, onClose}) {
                             <FontAwesomeIcon icon={faTrash} id='icone-aviso'/>
                         </div>
                         <p id='texto-aviso'>Tem certeza de que deseja excluir a receita?</p>
-                        <button id='botao-confirmar-delete'>Excluir</button>
+                        <button id='botao-confirmar-delete' onClick={() => {delRecipe()}}>Excluir</button>
                     </div>
                 </div>
             </div>

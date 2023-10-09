@@ -154,6 +154,17 @@
     background-color: rgb(255, 67, 67);
     color: white;
     font-family: 'Montserrat', sans-serif;
+    transition: all .2s ease;
+}
+
+#botao-confirmar-delete:hover{
+    background-color: rgb(255, 25, 25);
+    width: 39%;
+}
+
+#botao-confirmar-delete:active{
+    background-color: rgb(204, 8, 8);
+    width: 34%;
 }
 
 #display-trash{
