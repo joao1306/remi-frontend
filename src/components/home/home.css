@@ -92,7 +92,7 @@ h1{
 
 .sec-categorias{
     width: 100%;
-    height: 22vh;
+    height: 23vh;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -105,10 +105,13 @@ h1{
     display: flex;
     align-items: center;
     flex: row;
+    justify-content: space-between;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 
 .box-categorias > *:not(:first-child){
-    margin-left: 2rem;
+    margin-left: .2rem;
 }
 
 
@@ -123,7 +126,19 @@ h1{
     gap: 1%;
 }
 
+.botao-categoria-lobby{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    margin: 0;
+    margin-left: 0;
+    margin-right: 0;
+    font-family: 'Montserrat', sans-serif;
+}
 
+.box-categorias::-webkit-scrollbar {
+    width: 0.5em; /* Largura da barra de rolagem, você pode ajustar conforme necessário */
+  }
 
 
 
