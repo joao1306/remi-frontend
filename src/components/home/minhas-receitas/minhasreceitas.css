@@ -8,14 +8,21 @@
     position: relative;
 }
 
-.container-botao-home-minhas-receitas{
-    margin-top: 2.3rem;
+.container-botao-home-minhas-receitas {
     width: 90%;
     display: flex;
     align-items: center;
     flex-direction: row;
     justify-content: flex-end;
     box-sizing: border-box;
+    position: absolute;
+    top:1.5rem;
+    right: 2.5rem;
+}
+
+.botao-home{
+    width: 2.5rem;
+    height: 2.5rem;
 }
 
 .box-icones-categoria{
@@ -27,6 +34,7 @@
     justify-content: center;
     gap: 15px;
     transition: all .5s ease;
+    margin-top: 7rem;
 }
 
 .icone-categoria{
