@@ -36,7 +36,7 @@ h1{
     align-items: center;
     justify-content: flex-end;
     position: relative;
-    margin-bottom: 0;
+    margin-bottom: .3rem;
 }
 
 .barra-de-pesquisa{
@@ -80,14 +80,16 @@ h1{
     height: 5vh;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    margin-top: .8rem;
+    justify-content: center;
+    margin-top: .3rem;
+    margin-bottom: .5rem;
 }
 
 .texto-titulo-secao{
     color: rgb(20, 20, 20);
     font-size: 1.5rem;
     font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .sec-categorias{

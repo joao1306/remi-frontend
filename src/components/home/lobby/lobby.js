@@ -96,10 +96,6 @@ export default function Lobby() {
                 <button className='botao-lupa'><FontAwesomeIcon icon={faMagnifyingGlass} className='icone-lupa' /></button>
             </div>
 
-            <div className='box-titulo-secao'>
-                <h2 className='texto-titulo-secao'>Categorias</h2>
-            </div>
-
             <div className='sec-categorias'>
                 <div className='box-categorias'>
 

@@ -96,20 +96,21 @@ export default function Receita() {
 
     }
 
-
     function mediaNotas(arr) {
         let somaNotas = 0;
         const notas = JSON.parse(arr)
-
+    
         notas.map((nota) => {
-            somaNotas = somaNotas + parseFloat(nota, 10);
+          somaNotas = somaNotas + parseFloat(nota, 10);
         });
-
+    
         const numeroDeNotas = notas.length;
         const media = somaNotas / numeroDeNotas;
-
-        return media;
-    }
+        const mediaFormatada = media.toFixed(2);
+        const mediaString = mediaFormatada.toString().replace(/(\.0*|(?<=(\..*[^0]))0*)$/, '');
+    
+        return mediaString;
+      }
 
     const estrelas = document.querySelectorAll('.icone-estrela-avaliacao');
 
