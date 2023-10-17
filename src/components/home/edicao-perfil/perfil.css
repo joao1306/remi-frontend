@@ -26,18 +26,19 @@
     margin: 0;
     margin-bottom: 2rem;
     color: rgba(0, 0, 0, 0.76);
+    margin-top: 0;
 }
 
 #box-foto-perfil{
-    width: 15rem;
-    height: 15rem;
+    width: 12rem;
+    height: 12rem;
     border-radius: 1rem;
     background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 2rem;
+    overflow: hidden;
 }
 
 #icone-upload{
@@ -68,7 +69,7 @@
 }
 
 .input-edicao-perfil{
-    width: 33rem;
+    width: 90%;
     height: 3.8rem;
     border-radius: 1rem;
     border: none;
@@ -77,6 +78,7 @@
     box-sizing: border-box;
     padding-inline:1.5rem;
     font-size: 1rem;
+    background-color: rgb(240, 240, 240);
 }
 
 .input-edicao-perfil::placeholder{
@@ -84,7 +86,7 @@
 }
 
 #select-edicao-perfil{
-    width: 15rem;
+    width: 90%;
     height: 3.8rem;
     border-radius: 1rem;
     box-sizing: border-box;
@@ -93,26 +95,27 @@
     padding-inline: 1rem;
     margin-bottom: 1rem;
     font-family: 'Montserrat', sans-serif;
+    background-color: rgb(240, 240, 240);
 }
 
 #select-edicao-perfil:hover{
     cursor: pointer;
     background-color: orange;
     transition:all .3s ease;
-    color: white;
+    color: white;    
 }
 
 #botao-salvar-perfil{
-    width: 15rem;
-    height: 3.8rem;
-    border-radius: 1rem;
+    width: 40%;
+    height: 80%;
+    border-radius: 50rem;
     background-color: orange;
     outline: none;
     border: none;
     color: white;
     font-weight: 500;
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1rem;
     cursor: pointer;
     transition: all .3s ease;
     box-sizing: border-box;
@@ -120,4 +123,76 @@
 
 #botao-salvar-perfil:hover{
     background-color: rgb(255, 180, 40);
+}
+
+#avatar-perfil{
+    height: 100%;
+    border-radius: 1rem;
+    display: flex;
+    position: relative;
+}
+
+#card-edicao-perfil{
+    width: 55%;
+    height: 55%;
+    background-color: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#box-botao-home{
+    margin-bottom: 0;
+}
+
+#info-edicao-perfil{
+    width: 50%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+#box-foto-perfil{
+    width: 50%;
+    height: 80%;
+    position: relative;
+}
+
+#botao-avatar{
+    width: 2rem;
+    height: 2rem;
+    background-color: orange;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    position: absolute;
+    top: 8%;
+    right: 18%;
+    z-index: 2;
+    cursor: pointer;
+    transition: all .3s ease;
+    color: white;
+}
+
+#botao-avatar:hover{
+    background-color: rgb(255, 180, 40);
+}
+
+#div-inputs{
+    height: 80%;
+    width: 100%;
+}
+
+#div-botao-salvar{
+    height: 20%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }

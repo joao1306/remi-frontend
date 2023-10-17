@@ -1,0 +1,16 @@
+#modal-avatares{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+#box-icones-avatares{
+    width: 90%;
+    height: 75%;
+}
+
+#botao-sair-modal-avatares{
+    width: 20%;
+    height: 5%;
+    margin-bottom: 5%;
+}

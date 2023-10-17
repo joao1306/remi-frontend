@@ -39,7 +39,7 @@ a{
     height: 50px;
     background-color: white;
     border: 2px solid white;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     border-radius: 3rem;
@@ -63,6 +63,7 @@ a{
     background-color: white;
     margin-top: 20px;
     transition: all .3s ease;
+    display: none;
 }
 
 .sidebar .box-items-sidebar{
@@ -131,6 +132,9 @@ a{
     transition: all .3s ease;
 }
 
+.sidebar.active .line{
+    display: block;
+}
 
 .sidebar.active .nome-perfil{
     color: white;

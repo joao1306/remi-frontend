@@ -6,8 +6,6 @@ import { faUser, faLock, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
 
 
-
-
 export default function Cadastro() {
 
   const [user, setUser] = useState({ username: '', senha: '', senharep: ''});
