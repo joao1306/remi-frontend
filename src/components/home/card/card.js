@@ -4,6 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import avatar1 from '../../media/avatar1.png';
+import avatar2 from '../../media/avatar2.png';
+import avatar3 from '../../media/avatar3.png';
+import avatar4 from '../../media/avatar4.png';
+import avatar5 from '../../media/avatar5.png';
+import avatar6 from '../../media/avatar6.png';
 
 export default function Card(prop) {
   
@@ -11,6 +17,10 @@ export default function Card(prop) {
 
   const [recipes, setRecipes] = useState([]);
   const [user, setUser] = useState([]);
+
+  const indexAvatarAutor = parseInt(user.foto) - 1;
+  const fotos = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
+
 
   function mediaNotas(arr) {
     let somaNotas = 0;
@@ -69,7 +79,7 @@ export default function Card(prop) {
       <div className='box-perfil-nota'>
 
         <div className='display-foto-perfil'>
-          <img src={user.foto} className='foto-perfil-card'></img>
+          <img src={fotos[indexAvatarAutor]} className='foto-perfil-card'></img>
         </div>
 
         <div className='box-nome-titulo'>

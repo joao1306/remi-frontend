@@ -4,18 +4,27 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse, faPencil } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import fotoPerfil from '../../media/avatar5.png';
-import Avatares from '../../modal/Avatares';
+import Avatares from '../../modal/avatares';
+import avatar1 from '../../media/avatar1.png';
+import avatar2 from '../../media/avatar2.png';
+import avatar3 from '../../media/avatar3.png';
+import avatar4 from '../../media/avatar4.png';
+import avatar5 from '../../media/avatar5.png';
+import avatar6 from '../../media/avatar6.png';
 
 export default function Perfil() {
 
   const usuarioLogado = JSON.parse(localStorage.getItem('loggedUser'));
+  const indexAvatarUsuarioLogado = parseInt(usuarioLogado.foto) - 1;
+  const fotos = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
 
-  const [user, setUser] = useState({ id: usuarioLogado.id, username: '', foto: '', titulo: 'Amador' });
+  const [user, setUser] = useState({ id: usuarioLogado.id, username: usuarioLogado.username, titulo: 'Amador' });
   const [modalAvatarOpen, setModalAvatarOpen] = useState(false);
 
   const openModalAvatar = () => {
     setModalAvatarOpen(true);
 }
+
 
 const closeModalAvatar = () => {
     setModalAvatarOpen(false);
@@ -63,7 +72,7 @@ const closeModalAvatar = () => {
           <button id='botao-avatar' onClick={() => openModalAvatar()}>
             <FontAwesomeIcon icon={faPencil} />
           </button>
-          <img src={fotoPerfil} id='avatar-perfil'></img>
+          <img src={fotos[indexAvatarUsuarioLogado]} id='avatar-perfil'></img>
         </div>
         <div id='info-edicao-perfil'>
           <div id='div-inputs'>

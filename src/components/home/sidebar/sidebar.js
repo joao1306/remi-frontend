@@ -3,6 +3,12 @@ import './sidebar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faPencil, faBook, faStar, faGear, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import {AuthContext} from '../../../contexts/AuthContext'
+import avatar1 from '../../media/avatar1.png';
+import avatar2 from '../../media/avatar2.png';
+import avatar3 from '../../media/avatar3.png';
+import avatar4 from '../../media/avatar4.png';
+import avatar5 from '../../media/avatar5.png';
+import avatar6 from '../../media/avatar6.png';
 
 export default function Sidebar() {
 
@@ -11,19 +17,21 @@ export default function Sidebar() {
     const [isSidebarActive, setIsSidebarActive] = useState(false);
 
     const usuarioLogado = JSON.parse(localStorage.getItem('loggedUser'));
+    const indexAvatarUsuarioLogado = parseInt(usuarioLogado.foto) - 1;
 
     const toggleSidebar = () => {
         setIsSidebarActive(!isSidebarActive);
     };
 
     const sidebarClasses = `sidebar ${isSidebarActive ? 'active' : ''}`;
+    const fotos = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
 
 
     return (
         <div className={sidebarClasses}>
             <button className="btn-sidebar" onClick={toggleSidebar}><FontAwesomeIcon icon={faBars} /></button>
             <div className='display-foto-perfil'>
-                <img src={usuarioLogado.foto} className='foto-perfil'></img>
+                <img src={fotos[indexAvatarUsuarioLogado]} className='foto-perfil'></img>
             </div>
             <h2 className='nome-perfil'>{usuarioLogado.username}</h2>
             <h4 className='titulo-perfil'>{usuarioLogado.titulo}</h4>

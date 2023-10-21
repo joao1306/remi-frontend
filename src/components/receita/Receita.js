@@ -6,6 +6,12 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Ingredientes from '../modal/Ingredientes'
 import Delete from '../modal/Delete'
+import avatar1 from '../media/avatar1.png';
+import avatar2 from '../media/avatar2.png';
+import avatar3 from '../media/avatar3.png';
+import avatar4 from '../media/avatar4.png';
+import avatar5 from '../media/avatar5.png';
+import avatar6 from '../media/avatar6.png';
 
 export default function Receita() {
 
@@ -16,6 +22,9 @@ export default function Receita() {
     const [modalDeleteOpen, setModalDeleteOpen] = useState(false);
     const [listaIngredientes, setListaIngredientes] = useState([]);
     const [avaliada, setAvaliada] = useState(false);
+
+    const indexAvatarAutor = parseInt(autor.foto) - 1;
+    const fotos = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
 
     const openModal = (ingredientes) => {
         setListaIngredientes(ingredientes);
@@ -226,7 +235,7 @@ export default function Receita() {
                     <div id='bloco-perfil-botao-ingredientes'>
                         <div id='container-foto-nome'>
                             <div id='display-perfil'>
-                                <img id='foto-perfil' src={autor.foto}></img>
+                               <img id='foto-perfil' src={fotos[indexAvatarAutor]}></img>
                             </div>
                             <div id='nome-subtitulo'>
                                 <p id='nome-usuario'>{autor.username}</p>

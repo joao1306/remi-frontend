@@ -122,7 +122,7 @@
 
 
 #bloco-perfil-botao-ingredientes {
-    height: 19%;
+    height: 23%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -136,6 +136,9 @@
     background-color: white;
     border-radius: 50%;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #foto-perfil {
