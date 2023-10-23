@@ -12,6 +12,7 @@ export default function Lobby() {
     const [recipes, setRecipes] = useState([]);
     const [categoriaSelecionada, setCategoriaSelecionada] = useState('all');
     const [filtroNome, setFiltroNome] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     function handleInputChange(event) {
         const valorFiltro = event.target.value;
@@ -20,7 +21,6 @@ export default function Lobby() {
 
     function filtrarReceitas() {
         if (filtroNome.trim() === '') {
-
             return recipes;
         }
         return recipes.filter(receita => receita.nome.toLowerCase().includes(filtroNome.toLowerCase()));
@@ -43,6 +43,9 @@ export default function Lobby() {
       }
 
     async function fetchBestRecipes() {
+        
+        setIsLoading(true);
+
         try {
             const response = await axios.get(`http://localhost:8800/best-recipes?categoria=${categoriaSelecionada}`);
             if (response.status === 200) {
@@ -63,10 +66,14 @@ export default function Lobby() {
             }
         } catch (error) {
             console.error(error);
+        } finally {
+            setIsLoading(false);
         }
     }
 
-    fetchBestRecipes();
+    useEffect(() => {
+        fetchBestRecipes();
+    }, [categoriaSelecionada]);
 
     const definirCategoria = (categoria) => {
         if(categoria === categoriaSelecionada){
@@ -127,7 +134,7 @@ export default function Lobby() {
             </div>
 
             <div className='box-receitas'>
-                {mapReceitas(filtrarReceitas())}
+                {isLoading ? (<p>Carregando</p>) : (mapReceitas(filtrarReceitas()))}
             </div>
         </div>
     )

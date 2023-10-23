@@ -11,6 +11,7 @@ export default function MinhasReceitas() {
     const [categoriaSelecionada, setCategoriaSelecionada] = useState('all');
     const [pesquisa, setPesquisa] = useState('');
     const usuarioLogado = JSON.parse(localStorage.getItem('loggedUser'));
+    const [filtroNome, setFiltroNome] = useState('');
     
     
     async function fetchMyRecipes() {
@@ -26,6 +27,14 @@ export default function MinhasReceitas() {
             console.error(error);
         }
     }
+
+    function filtrarReceitas() {
+        if (filtroNome.trim() === '') {
+
+            return recipes;
+        }
+        return recipes.filter(receita => receita.nome.toLowerCase().includes(filtroNome.toLowerCase()));
+    }
     
     fetchMyRecipes();
     
@@ -37,6 +46,11 @@ export default function MinhasReceitas() {
             setCategoriaSelecionada(categoria)
         }
         fetchMyRecipes();
+    }
+
+    function handleInputChangeSearchBar(event) {
+        const valorFiltro = event.target.value;
+        setFiltroNome(valorFiltro);
     }
     
     function mapReceitas(arr) {
@@ -64,7 +78,7 @@ export default function MinhasReceitas() {
 
             <div className='container-botao-home-minhas-receitas'>
                 <form className='box-barra-de-pesquisa' onSubmit={(e) => {pesquisar(e)}}>
-                    <input type='text' className='barra-de-pesquisa' placeholder='Bolo de Cenoura' onChange={(e) => {definirPesquisa(e)}}></input>
+                    <input type='text' className='barra-de-pesquisa' placeholder='Bolo de Cenoura' onChange={handleInputChangeSearchBar}></input>
                     <button className='botao-lupa' type='submit'><FontAwesomeIcon icon={faMagnifyingGlass} className='icone-lupa' /></button>
                 </form>
                 <a href='/home/lobby' className='botao-home'>
@@ -108,7 +122,7 @@ export default function MinhasReceitas() {
             </div>
 
             <div className='display-receitas'>
-                {mapReceitas(recipes)}
+                {mapReceitas(filtrarReceitas())}
             </div>
 
         </div>
