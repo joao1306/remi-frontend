@@ -10,6 +10,7 @@ import axios from 'axios';
 import Lobby from './lobby/lobby';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MinhasReceitas from './minhas-receitas/MinhasReceitas';
+import PerfilUsuario from '../perfil-usuario/perfil';
 
 export default function Home() {
 
@@ -51,6 +52,7 @@ export default function Home() {
             <Route path='/melhores-receitas' element={''}/>
             <Route path='/editar-perfil' element={<Perfil/>}/>
             <Route path='/receita/:id' element={<Receita/>}/>
+            <Route path='/perfil/:idusuario' element={<PerfilUsuario/>}/>
           </Routes>
 
       </div>

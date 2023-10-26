@@ -64,6 +64,11 @@ export default function Card(prop) {
     navigate(`/home/receita/${prop.idreceita}`)
   }
 
+  {/* codigo responsável por direcionar o usuário para a página de perfil do usuário */ }
+  const irParaUsuario = () => {
+    navigate(`/home/perfil/${user.id}`)
+  }
+
   return (
 
     <div className='card-box'>
@@ -78,11 +83,11 @@ export default function Card(prop) {
 
       <div className='box-perfil-nota'>
 
-        <div className='display-foto-perfil'>
+        <div className='display-foto-perfil' onClick={irParaUsuario}>
           <img src={fotos[indexAvatarAutor]} className='foto-perfil-card'></img>
         </div>
 
-        <div className='box-nome-titulo'>
+        <div className='box-nome-titulo' onClick={irParaUsuario}>
           <h2 className='nome-usuario'>{user.username}</h2>
           <h4 className='titulo-usuario'>{user.titulo}</h4>
         </div>
