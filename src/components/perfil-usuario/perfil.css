@@ -26,7 +26,7 @@
     width: 50rem;
     min-height: 22rem;
     background-color: white;
-    margin-top: 15vh;
+    margin-top: 25vh;
     border-radius: 1rem; 
     display: flex;
     flex-direction: row;
@@ -115,4 +115,8 @@
 .tamanho-display-receitas-usuario{
     height: 70vh;
     width: 90%;
+}
+
+.hidden{
+    display: none;
 }

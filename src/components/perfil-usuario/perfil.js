@@ -20,10 +20,17 @@ export default function Perfil() {
   const [categoriaSelecionada, setCategoriaSelecionada] = useState('all');
   const [recipes, setRecipes] = useState([]);
   const [filtroNome, setFiltroNome] = useState('');
+  const [displayReceitasVisible, setDisplayReceitasVisible] = useState(false);
+  const arrayFotos = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
+
 
   const pesquisar = (e) => {
     fetchMyRecipes()
   }
+
+  const toggleDisplayReceitas = () => {
+    setDisplayReceitasVisible(!displayReceitasVisible);
+  };
 
   async function fetchMyRecipes() {
     try {
@@ -38,6 +45,24 @@ export default function Perfil() {
       console.error(error);
     }
   }
+
+  useEffect(() => {
+        async function getAutor() {
+            try {
+                const response = await axios.put('http://localhost:8800/autor-receita', { autor: idusuario });
+                if (response.status === 200) {
+                    const data = response.data;
+                    setUsuario(data);
+                } else {
+                    throw new Error('Erro ao buscar autor');
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        }
+        getAutor();
+}, [idusuario]);
+
 
   function handleInputChangeSearchBar(event) {
     const valorFiltro = event.target.value;
@@ -88,27 +113,27 @@ export default function Perfil() {
 
       <div id="card-usuario">
         <div id="display-avatar-usuario">
-          <img src={avatar1} id='avatar-usuario'></img>
+          <img src={arrayFotos[usuario.foto - 1]} id='avatar-usuario'></img>
         </div>
         <div id="info-card-usuario">
           <div id="info-section">
             <h6 className='subtitulo-card-usuario'>Nome de Usuario</h6>
-            <h3 className='titulo-card-usuario'>Mari</h3>
+            <h3 className='titulo-card-usuario'>{usuario.username}</h3>
           </div>
           <div id="info-section">
             <h6 className='subtitulo-card-usuario'>Experiência</h6>
-            <h3 className='titulo-card-usuario'>Cheff</h3>
+            <h3 className='titulo-card-usuario'>{usuario.titulo}</h3>
           </div>
           <div id="info-section">
             <h6 className='subtitulo-card-usuario'>Receitas</h6>
-            <h3 className='titulo-card-usuario'>23</h3>
+            <h3 className='titulo-card-usuario'>{usuario.receitas ? usuario.receitas.length : "Contando"}</h3>
           </div>
         </div>
 
-        <button id="botao-mostrar-receitas">Receitas</button>
+        <button id="botao-mostrar-receitas" onClick={toggleDisplayReceitas}>Receitas</button>
       </div>
 
-      <div className='display-receitas-usuario'>
+      <div className={`display-receitas-usuario ${displayReceitasVisible ? '' : 'hidden'}`}>
         <div className='box-icones-categoria espacamento-top'>
 
           <div id='carnes' className='icone-categoria' onClick={() => definirCategoria('Carnes')}>
@@ -142,7 +167,7 @@ export default function Perfil() {
           <p className='titulo-minhas-receitas'>Receitas</p>
         </div>
 
-        <div className='display-receitas tamanho-display-receitas-usuario'>
+        <div id="display-das-receitas" className="display-receitas tamanho-display-receitas-usuario">
           {mapReceitas(filtrarReceitas())}
         </div>
       </div>
