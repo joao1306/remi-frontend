@@ -17,51 +17,67 @@ export default function Perfil() {
 
   const { idusuario } = useParams();
   const [usuario, setUsuario] = useState([]);
-  const [categoriaSelecionada, setCategoriaSelecionada] = useState('all');
+  const [categoriaSelecionadaPerfil, setCategoriaSelecionadaPerfil] = useState('all');
   const [recipes, setRecipes] = useState([]);
   const [filtroNome, setFiltroNome] = useState('');
   const [displayReceitasVisible, setDisplayReceitasVisible] = useState(false);
+  const [isProfileLoading, setIsProfileLoading] = useState(false);
+  const [numberOfRecipes, setNumberOfRecipes] = useState(0);
   const arrayFotos = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
 
-
-  const pesquisar = (e) => {
-    fetchMyRecipes()
-  }
-
-  const toggleDisplayReceitas = () => {
-    setDisplayReceitasVisible(!displayReceitasVisible);
-  };
-
   async function fetchMyRecipes() {
+    
+    setIsProfileLoading(true);
+    
     try {
-      const response = await axios.get(`http://localhost:8800/my-recipes?userId=${usuario.id}&categoria=${categoriaSelecionada}`);
+      const response = await axios.get(`http://localhost:8800/my-recipes?userId=${usuario.id}&categoria=${categoriaSelecionadaPerfil}`);
       if (response.status === 200) {
         const data = response.data;
         setRecipes(data);
+        if(categoriaSelecionadaPerfil === 'all'){
+          setNumberOfRecipes(data.length);
+        }
       } else {
         throw new Error('Erro ao buscar receitas');
       }
     } catch (error) {
       console.error(error);
+    } finally {
+      setIsProfileLoading(false);
     }
   }
+  
+  useEffect(() => {
+    fetchMyRecipes();
+  }, [categoriaSelecionadaPerfil]);
+
+  const pesquisar = (e) => {
+    fetchMyRecipes()
+  }
+  
+  const toggleDisplayReceitas = () => {
+    console.log(categoriaSelecionadaPerfil)
+    setDisplayReceitasVisible(!displayReceitasVisible);
+    fetchMyRecipes();
+  };
+
 
   useEffect(() => {
-        async function getAutor() {
-            try {
-                const response = await axios.put('http://localhost:8800/autor-receita', { autor: idusuario });
-                if (response.status === 200) {
-                    const data = response.data;
-                    setUsuario(data);
-                } else {
-                    throw new Error('Erro ao buscar autor');
-                }
-            } catch (error) {
-                console.error(error);
-            }
+    async function getAutor() {
+      try {
+        const response = await axios.put('http://localhost:8800/autor-receita', { autor: idusuario });
+        if (response.status === 200) {
+          const data = response.data;
+          setUsuario(data);
+        } else {
+          throw new Error('Erro ao buscar autor');
         }
-        getAutor();
-}, [idusuario]);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    getAutor();
+  }, [idusuario]);
 
 
   function handleInputChangeSearchBar(event) {
@@ -71,24 +87,37 @@ export default function Perfil() {
 
   const definirCategoria = (categoria) => {
 
-    if (categoria === categoriaSelecionada) {
-      setCategoriaSelecionada('all')
+    if (categoria === categoriaSelecionadaPerfil) {
+      setCategoriaSelecionadaPerfil('all')
     } else {
-      setCategoriaSelecionada(categoria)
+      setCategoriaSelecionadaPerfil(categoria)
     }
+    console.log(categoriaSelecionadaPerfil)
     fetchMyRecipes();
   }
 
+
   function mapReceitas(arr) {
-    return arr.map((receita, index) => (<Card className='card-receita-minhas-receitas' key={index}
-      foto={receita.foto}
-      nome={receita.nome}
-      categoria={receita.categoria}
-      notas={receita.notas}
-      idusuario={receita.idusuario}
-      idreceita={receita.idreceitas}
-    ></Card>))
+    if (Array.isArray(arr) && arr.length > 0) {
+      return arr.map((receita, index) => (
+        <Card
+          className='card-receita-minhas-receitas'
+          key={index}
+          foto={receita.foto}
+          nome={receita.nome}
+          categoria={receita.categoria}
+          notas={receita.notas}
+          idusuario={receita.idusuario}
+          idreceita={receita.idreceitas}
+        ></Card>
+      ));
+    } else if (isProfileLoading) {
+      return "Carregando";
+    } else {
+      return "Nenhuma receita encontrada";
+    }
   }
+  
 
   function filtrarReceitas() {
     if (filtroNome.trim() === '') {
@@ -126,7 +155,7 @@ export default function Perfil() {
           </div>
           <div id="info-section">
             <h6 className='subtitulo-card-usuario'>Receitas</h6>
-            <h3 className='titulo-card-usuario'>{usuario.receitas ? usuario.receitas.length : "Contando"}</h3>
+            <h3 className='titulo-card-usuario'>{isProfileLoading ? 0 : numberOfRecipes }</h3>
           </div>
         </div>
 
