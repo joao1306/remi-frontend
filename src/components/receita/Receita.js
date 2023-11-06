@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './receita.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHouse, faStar, faTrash } from '@fortawesome/free-solid-svg-icons'
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Ingredientes from '../modal/Ingredientes'
 import Delete from '../modal/Delete'
@@ -25,6 +25,7 @@ export default function Receita() {
 
     const indexAvatarAutor = parseInt(autor.foto) - 1;
     const fotos = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
+    const navigate = useNavigate();
 
     const openModal = (ingredientes) => {
         setListaIngredientes(ingredientes);
@@ -108,18 +109,18 @@ export default function Receita() {
     function mediaNotas(arr) {
         let somaNotas = 0;
         const notas = JSON.parse(arr)
-    
+
         notas.map((nota) => {
-          somaNotas = somaNotas + parseFloat(nota, 10);
+            somaNotas = somaNotas + parseFloat(nota, 10);
         });
-    
+
         const numeroDeNotas = notas.length;
         const media = somaNotas / numeroDeNotas;
         const mediaFormatada = media.toFixed(2);
         const mediaString = mediaFormatada.toString().replace(/(\.0*|(?<=(\..*[^0]))0*)$/, '');
-    
+
         return mediaString;
-      }
+    }
 
     const estrelas = document.querySelectorAll('.icone-estrela-avaliacao');
 
@@ -207,6 +208,10 @@ export default function Receita() {
         }
     }
 
+    const irParaUsuario = () => {
+        navigate(`/home/perfil/${autor.id}`)
+    }
+
     return (
 
         <div className='screen-receita'>
@@ -234,8 +239,8 @@ export default function Receita() {
                     <p className='texto-descricao-receita'>{recipe[0].descricao}</p>
                     <div id='bloco-perfil-botao-ingredientes'>
                         <div id='container-foto-nome'>
-                            <div id='display-perfil'>
-                               <img id='foto-perfil' src={fotos[indexAvatarAutor]}></img>
+                            <div id='display-perfil' onClick={irParaUsuario}>
+                                <img id='foto-perfil' src={fotos[indexAvatarAutor]}></img>
                             </div>
                             <div id='nome-subtitulo'>
                                 <p id='nome-usuario'>{autor.username}</p>
@@ -254,7 +259,7 @@ export default function Receita() {
             {mapPassos(JSON.parse(recipe[0].passos))}
             {modalOpen && (<Ingredientes ingredientes={listaIngredientes} onClose={closeModal} nome={recipe[0].nome} />)}
             {checarAutor()}
-            {modalDeleteOpen && (<Delete id={recipe[0].idreceitas} onClose={closeModalDelete}/>)}
+            {modalDeleteOpen && (<Delete id={recipe[0].idreceitas} onClose={closeModalDelete} />)}
         </div>
 
     )

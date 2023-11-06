@@ -142,6 +142,44 @@ h1{
     width: 0.5em; /* Largura da barra de rolagem, você pode ajustar conforme necessário */
   }
 
+#mobile-warning{
+    z-index: 10000;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: orange;
+    display: none;
+}
+
+@media (max-width: 426px) {
+    #mobile-warning{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #ilustracao-mobile{
+        width: 50vw;
+        margin-top: 3rem;
+    }
+
+    #aviso-mobile{
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 300;
+        color: white;
+        width: 85%;
+        margin-top: 10%;
+        font-size: 2rem;
+    }
+    
+    #logo-remi-branca{
+        width: 30%;
+        position: fixed;
+        top: 2rem;
+    }
+
+  }
 
 
 

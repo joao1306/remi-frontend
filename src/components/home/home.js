@@ -11,6 +11,8 @@ import Lobby from './lobby/lobby';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MinhasReceitas from './minhas-receitas/MinhasReceitas';
 import PerfilUsuario from '../perfil-usuario/perfil';
+import ilustracao from '../media/ilustracaomobile.png';
+import logo from '../media/logoremibranca.png';
 
 export default function Home() {
 
@@ -43,6 +45,11 @@ export default function Home() {
 
   return (
     <div className='screen'>
+      <div id='mobile-warning'>
+        <img src={logo} id="logo-remi-branca"/>
+        <img src={ilustracao} id='ilustracao-mobile'/>
+        <p id="aviso-mobile">A versão <b>mobile</b> já está no forno!</p>
+      </div>
       <Sidebar></Sidebar>
       <div className='conteudo-home'>
           <Routes>

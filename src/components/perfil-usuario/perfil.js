@@ -112,9 +112,9 @@ export default function Perfil() {
         ></Card>
       ));
     } else if (isProfileLoading) {
-      return "Carregando";
+      return <p id="loading-perfil">Carregando</p>;
     } else {
-      return "Nenhuma receita encontrada";
+      return "";
     }
   }
   
