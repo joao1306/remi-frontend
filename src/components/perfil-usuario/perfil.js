@@ -142,7 +142,7 @@ export default function Perfil() {
 
       <div id="card-usuario">
         <div id="display-avatar-usuario">
-          <img src={arrayFotos[usuario.foto - 1]} id='avatar-usuario'></img>
+          <img src={arrayFotos[usuario.foto - 1]} id='avatar-usuario' alt='avatar-usuario'/>
         </div>
         <div id="info-card-usuario">
           <div id="info-section">

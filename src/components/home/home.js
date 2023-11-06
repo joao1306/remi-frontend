@@ -46,8 +46,8 @@ export default function Home() {
   return (
     <div className='screen'>
       <div id='mobile-warning'>
-        <img src={logo} id="logo-remi-branca"/>
-        <img src={ilustracao} id='ilustracao-mobile'/>
+        <img src={logo} id="logo-remi-branca" alt='logo'/>
+        <img src={ilustracao} id='ilustracao-mobile' alt='ilustracao'/>
         <p id="aviso-mobile">A versão <b>mobile</b> já está no forno!</p>
       </div>
       <Sidebar></Sidebar>

@@ -50,22 +50,22 @@ export default function Avatares({ onClose }) {
     <div id='modal-avatares'>
       <div id='box-icones-avatares'>
         <div className='icone-avatar'>
-          <img src={avatar1} className='avatar' data-id='1' onClick={persistirFoto}></img>
+          <img src={avatar1} className='avatar' data-id='1' onClick={persistirFoto} alt='avatar'/>
         </div>
         <div className='icone-avatar'>
-          <img src={avatar2} className='avatar' data-id='2' onClick={persistirFoto}></img>
+          <img src={avatar2} className='avatar' data-id='2' onClick={persistirFoto} alt='avatar'/>
         </div>
         <div className='icone-avatar'>
-          <img src={avatar3} className='avatar' data-id='3' onClick={persistirFoto}></img>
+          <img src={avatar3} className='avatar' data-id='3' onClick={persistirFoto} alt='avatar'/>
         </div>
         <div className='icone-avatar'>
-          <img src={avatar4} className='avatar' data-id='4' onClick={persistirFoto}></img>
+          <img src={avatar4} className='avatar' data-id='4' onClick={persistirFoto} alt='avatar'/>
         </div>
         <div className='icone-avatar'>
-          <img src={avatar5} className='avatar' data-id='5' onClick={persistirFoto}></img>
+          <img src={avatar5} className='avatar' data-id='5' onClick={persistirFoto} alt='avatar'/>
         </div>
         <div className='icone-avatar'>
-          <img src={avatar6} className='avatar' data-id='6' onClick={persistirFoto}></img>
+          <img src={avatar6} className='avatar' data-id='6' onClick={persistirFoto} alt='avatar'/>
         </div>
       </div>
       <button id='botao-sair-modal-avatares' onClick={onClose}>Pronto!</button>

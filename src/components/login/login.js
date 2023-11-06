@@ -62,7 +62,7 @@ export default function Login() {
     <div className='background-login'>
       <div className='login-box'>
         <form className='login-form' onSubmit={onSubmit}>
-          <img src={logoremi} className='logo-login'></img>
+          <img src={logoremi} className='logo-login' alt='logo-remi'/>
           <div className='input-box-login'>
             <input type='text' placeholder='Usuário' className='input-login' value={user.username} name='username' onChange={handleInputChange}/>
             <FontAwesomeIcon icon={faUser} className='icone-login-box'/>

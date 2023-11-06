@@ -10,7 +10,7 @@ export default function Categoria(props) {
     <div className={classeCategoriaBox}>
         <p className='titulo-categoria'>{props.titulo}</p>
         <div className='display-img'>
-            <img src={props.img} className='imagem'></img>
+            <img src={props.img} className='imagem' alt='foto-categoria'></img>
         </div>
     </div>
   )

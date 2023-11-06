@@ -1,5 +1,6 @@
 .categoria-box{
     width: 17vw;
+    min-width: 200px;
     height: 20vh;
     background-color: white;
     border-radius: .8rem;

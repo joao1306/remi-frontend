@@ -73,7 +73,7 @@ export default function Card(prop) {
 
     <div className='card-box'>
       <div className='display-foto'>
-        <img src={prop.foto} className='foto-card'></img>
+        <img src={prop.foto} className='foto-card' alt="foto-card"/>
       </div>
 
       <div className='box-titulo-subtitulo'>
@@ -84,7 +84,7 @@ export default function Card(prop) {
       <div className='box-perfil-nota'>
 
         <div className='display-foto-perfil' onClick={irParaUsuario}>
-          <img src={fotos[indexAvatarAutor]} className='foto-perfil-card'></img>
+          <img src={fotos[indexAvatarAutor]} className='foto-perfil-card' alt="foto-perfil-card"/>
         </div>
 
         <div className='box-nome-titulo' onClick={irParaUsuario}>

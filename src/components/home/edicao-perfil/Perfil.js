@@ -72,7 +72,7 @@ const closeModalAvatar = () => {
           <button id='botao-avatar' onClick={() => openModalAvatar()}>
             <FontAwesomeIcon icon={faPencil} />
           </button>
-          <img src={fotos[indexAvatarUsuarioLogado]} id='avatar-perfil'></img>
+          <img src={fotos[indexAvatarUsuarioLogado]} id='avatar-perfil' alt='avatar-perfil'/>
         </div>
         <div id='info-edicao-perfil'>
           <div id='div-inputs'>

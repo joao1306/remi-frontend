@@ -223,7 +223,7 @@ export default function Receita() {
 
             <div className='bloco-superior-receita'>
                 <div className='display-foto-receita'>
-                    <img className='foto-receita' src={recipe[0].foto}></img>
+                    <img className='foto-receita' src={recipe[0].foto} alt='foto-receita'/>
                 </div>
                 <div className='bloco-info-receita'>
                     <div className='nome-nota-receita'>
@@ -240,7 +240,7 @@ export default function Receita() {
                     <div id='bloco-perfil-botao-ingredientes'>
                         <div id='container-foto-nome'>
                             <div id='display-perfil' onClick={irParaUsuario}>
-                                <img id='foto-perfil' src={fotos[indexAvatarAutor]}></img>
+                                <img id='foto-perfil' src={fotos[indexAvatarAutor]} alt='foto-perfil'/>
                             </div>
                             <div id='nome-subtitulo'>
                                 <p id='nome-usuario'>{autor.username}</p>
