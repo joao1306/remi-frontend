@@ -3,7 +3,6 @@ import './home.css';
 import Sidebar from './sidebar/sidebar';
 import Receita from '../receita/Receita';
 import Perfil from './edicao-perfil/Perfil';
-import Categoria from './categoria/categoria';
 import Card from './card/card';
 import CadastroReceita from './cadastro-receita/CadastroReceita';
 import axios from 'axios';

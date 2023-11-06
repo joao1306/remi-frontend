@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useContext} from 'react';
+import React from 'react';
 import Login from './components/login/login';
 import Home from './components/home/home';
 import Saudacao from './components/saudacao/saudacao';

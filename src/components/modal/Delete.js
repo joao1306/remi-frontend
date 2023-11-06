@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './delete.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faX, faCheck, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faX, faTrash } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Delete({ id, onClose}) {
 
