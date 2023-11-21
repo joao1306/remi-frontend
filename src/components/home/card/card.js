@@ -22,21 +22,57 @@ export default function Card(prop) {
   const fotos = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
 
 
+  //function mediaNotas(arr) {
+  //  let somaNotas = 0;
+  //  const notas = JSON.parse(arr)
+//
+  //  notas.map((nota) => {
+  //    somaNotas = somaNotas + parseFloat(nota, 10);
+  //  });
+//
+  //  const numeroDeNotas = notas.length;
+  //  const media = somaNotas / numeroDeNotas;
+  //  const mediaFormatada = media.toFixed(2);
+  //  const mediaString = mediaFormatada.toString().replace(/(\.0*|(?<=(\..*[^0]))0*)$/, '');
+//
+  //  return mediaString;
+  //}
+
+
+
+
+
+  {/* código EXPERIMENTAL */ }
+  {/* código EXPERIMENTAL */ }
   function mediaNotas(arr) {
     let somaNotas = 0;
-    const notas = JSON.parse(arr)
-
-    notas.map((nota) => {
-      somaNotas = somaNotas + parseFloat(nota, 10);
-    });
-
-    const numeroDeNotas = notas.length;
-    const media = somaNotas / numeroDeNotas;
-    const mediaFormatada = media.toFixed(2);
-    const mediaString = mediaFormatada.toString().replace(/(\.0*|(?<=(\..*[^0]))0*)$/, '');
-
-    return mediaString;
+  
+    // Inicializa notas como um array vazio se não estiver definido ou não for um array
+    const notas = Array.isArray(arr) ? arr : [];
+  
+    // Verifica se notas é um array antes de chamar map
+    if (Array.isArray(notas)) {
+      notas.map((nota) => {
+        somaNotas = somaNotas + parseFloat(nota, 10);
+      });
+  
+      const numeroDeNotas = notas.length;
+      const media = somaNotas / numeroDeNotas;
+      const mediaFormatada = media.toFixed(2);
+      const mediaString = mediaFormatada.toString().replace(/(\.0*|(?<=(\..*[^0]))0*)$/, '');
+  
+      return mediaString;
+    } else {
+      console.error("notas não é um array");
+      return "N/A"; // Ou outro valor padrão, caso notas não seja um array
+    }
   }
+  {/* código EXPERIMENTAL */ }
+  {/* código EXPERIMENTAL */ }
+
+
+  
+
 
   {/* código responsável por resgatar o usuario que escreveu a receita */ }
 
