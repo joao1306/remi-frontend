@@ -243,6 +243,8 @@ export default function Receita() {
         navigate(`/home/perfil/${autor.id}`)
     }
 
+    console.log(recipe);
+
     return (
 
         <div className='screen-receita'>

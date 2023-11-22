@@ -124,6 +124,7 @@ export default function Lobby() {
         ></Card>))
     }
 
+
     return (
         <div className='conteudo-home'>
 

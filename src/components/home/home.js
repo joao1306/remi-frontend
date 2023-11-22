@@ -19,7 +19,7 @@ export default function Home() {
 
   async function fetchRecipes() {
     try {
-      const response = await axios.get('https://remi-backend-lfaf.vercel.app/recipes');
+      const response = await axios.get('http://localhost:8800/recipes');
       if (response.status === 200) {
         const data = response.data;
         setRecipes(data);

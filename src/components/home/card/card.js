@@ -98,6 +98,7 @@ export default function Card(prop) {
   {/* codigo responsável por direcionar o usuário para a página da receita */ }
   const irParaReceita = () => {
     navigate(`/home/receita/${prop.idreceita}`)
+    console.log(prop.idreceita);
   }
 
   {/* codigo responsável por direcionar o usuário para a página de perfil do usuário */ }
