@@ -170,7 +170,8 @@ a{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .sidebar.active .item-sidebar{
@@ -201,3 +202,6 @@ a{
     font-size: 1.2rem;
 }
 
+::-webkit-scrollbar {
+    width: 0; /* Largura da barra de rolagem */
+  }

@@ -3,7 +3,7 @@ import axios from 'axios'
 import Card from '../card/card'
 import './minhasreceitas.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHouse, faDrumstickBite, faWheatAwn, faCandyCane, faMartiniGlassCitrus, faFishFins, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faHouse, faDrumstickBite, faWheatAwn, faCandyCane, faMartiniGlassCitrus, faFishFins, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 export default function MinhasReceitas() {
 

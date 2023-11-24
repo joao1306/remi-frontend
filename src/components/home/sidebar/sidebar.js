@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import './sidebar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faPencil, faBook, faStar, faGear, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faPencil, faBook, faStar, faGear, faRightFromBracket, faHeart } from '@fortawesome/free-solid-svg-icons'
 import { AuthContext } from '../../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import avatar1 from '../../media/avatar1.png';
@@ -52,6 +52,11 @@ export default function Sidebar() {
                 <a href="/home/minhas-receitas" className='item-sidebar botao-minhas-receitas'>
                     <FontAwesomeIcon icon={faBook} className='icone-item-sidebar' />
                     <p className='texto-item-sidebar'>Minhas Receitas</p>
+                </a>
+
+                <a href="/home/favoritas" className='item-sidebar botao-favoritas'>
+                    <FontAwesomeIcon icon={faHeart} className='icone-item-sidebar' />
+                    <p className='texto-item-sidebar'>Favoritas</p>
                 </a>
 
                 <a href="/home/lobby" className='item-sidebar botao-melhores-receitas'>

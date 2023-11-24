@@ -101,6 +101,7 @@
     justify-content: center;
     align-items: center;
     border-bottom: 2px solid rgba(26, 26, 26, 0.267);
+    margin-bottom: 1.5rem;
 }
 
 .display-receitas{

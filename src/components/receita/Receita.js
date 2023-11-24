@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './receita.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHouse, faStar, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faHouse, faStar, faTrash, faHeart } from '@fortawesome/free-solid-svg-icons'
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Ingredientes from '../modal/Ingredientes'
@@ -106,21 +106,50 @@ export default function Receita() {
 
     }
 
+    //    function mediaNotas(arr) {
+    //        let somaNotas = 0;
+    //        const notas = JSON.parse(arr)
+    //
+    //        notas.map((nota) => {
+    //            somaNotas = somaNotas + parseFloat(nota, 10);
+    //        });
+    //
+    //        const numeroDeNotas = notas.length;
+    //        const media = somaNotas / numeroDeNotas;
+    //        const mediaFormatada = media.toFixed(2);
+    //        const mediaString = mediaFormatada.toString().replace(/(\.0*|(?<=(\..*[^0]))0*)$/, '');
+    //
+    //        return mediaString;
+    //    }
+
+    {/* código EXPERIMENTAL */ }
+    {/* código EXPERIMENTAL */ }
     function mediaNotas(arr) {
         let somaNotas = 0;
-        const notas = JSON.parse(arr)
 
-        notas.map((nota) => {
-            somaNotas = somaNotas + parseFloat(nota, 10);
-        });
+        // Inicializa notas como um array vazio se não estiver definido ou não for um array
+        const notas = Array.isArray(arr) ? arr : [];
 
-        const numeroDeNotas = notas.length;
-        const media = somaNotas / numeroDeNotas;
-        const mediaFormatada = media.toFixed(2);
-        const mediaString = mediaFormatada.toString().replace(/(\.0*|(?<=(\..*[^0]))0*)$/, '');
+        // Verifica se notas é um array antes de chamar map
+        if (Array.isArray(notas)) {
+            notas.map((nota) => {
+                somaNotas = somaNotas + parseFloat(nota, 10);
+            });
 
-        return mediaString;
+            const numeroDeNotas = notas.length;
+            const media = somaNotas / numeroDeNotas;
+            const mediaFormatada = media.toFixed(2);
+            const mediaString = mediaFormatada.toString().replace(/(\.0*|(?<=(\..*[^0]))0*)$/, '');
+
+            return mediaString;
+        } else {
+            console.error("notas não é um array");
+            return "N/A"; // Ou outro valor padrão, caso notas não seja um array
+        }
     }
+    {/* código EXPERIMENTAL */ }
+    {/* código EXPERIMENTAL */ }
+
 
     const estrelas = document.querySelectorAll('.icone-estrela-avaliacao');
 
@@ -247,7 +276,10 @@ export default function Receita() {
                                 <p id='subtitulo-usuario'>{autor.titulo}</p>
                             </div>
                         </div>
-                        <button id='botao-ingredientes' onClick={() => openModal(JSON.parse(recipe[0].ingredientes))}>Ingredientes</button>
+                        <button id='botao-nao-favoritado'>
+                            <FontAwesomeIcon icon={faHeart} id='icone-fav' />
+                        </button>
+                        <button id='botao-ingredientes' onClick={() => openModal(recipe[0].ingredientes)}>Ingredientes</button>
                     </div>
                 </div>
             </div>
@@ -256,7 +288,7 @@ export default function Receita() {
 
             {/* a partir daqui serão renderizadas as etapas da receita */}
 
-            {mapPassos(JSON.parse(recipe[0].passos))}
+            {mapPassos(recipe[0].passos)}
             {modalOpen && (<Ingredientes ingredientes={listaIngredientes} onClose={closeModal} nome={recipe[0].nome} />)}
             {checarAutor()}
             {modalDeleteOpen && (<Delete id={recipe[0].idreceitas} onClose={closeModalDelete} />)}

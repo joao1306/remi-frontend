@@ -26,24 +26,53 @@ export default function Lobby() {
         return recipes.filter(receita => receita.nome.toLowerCase().includes(filtroNome.toLowerCase()));
     }
 
+    //    function mediaNotas(arr) {
+    //        let somaNotas = 0;
+    //        const notas = JSON.parse(arr)
+    //    
+    //        notas.map((nota) => {
+    //          somaNotas = somaNotas + parseFloat(nota, 10);
+    //        });
+    //    
+    //        const numeroDeNotas = notas.length;
+    //        const media = somaNotas / numeroDeNotas;
+    //        const mediaFormatada = media.toFixed(2);
+    //        const mediaString = mediaFormatada.toString().replace(/(\.0*|(?<=(\..*[^0]))0*)$/, '');
+    //    
+    //        return mediaString;
+    //      }
+
+    {/* código EXPERIMENTAL */ }
+    {/* código EXPERIMENTAL */ }
     function mediaNotas(arr) {
         let somaNotas = 0;
-        const notas = JSON.parse(arr)
-    
-        notas.map((nota) => {
-          somaNotas = somaNotas + parseFloat(nota, 10);
-        });
-    
-        const numeroDeNotas = notas.length;
-        const media = somaNotas / numeroDeNotas;
-        const mediaFormatada = media.toFixed(2);
-        const mediaString = mediaFormatada.toString().replace(/(\.0*|(?<=(\..*[^0]))0*)$/, '');
-    
-        return mediaString;
-      }
+
+        // Inicializa notas como um array vazio se não estiver definido ou não for um array
+        const notas = Array.isArray(arr) ? arr : [];
+
+        // Verifica se notas é um array antes de chamar map
+        if (Array.isArray(notas)) {
+            notas.map((nota) => {
+                somaNotas = somaNotas + parseFloat(nota, 10);
+            });
+
+            const numeroDeNotas = notas.length;
+            const media = somaNotas / numeroDeNotas;
+            const mediaFormatada = media.toFixed(2);
+            const mediaString = mediaFormatada.toString().replace(/(\.0*|(?<=(\..*[^0]))0*)$/, '');
+
+            return mediaString;
+        } else {
+            console.error("notas não é um array");
+            return "N/A"; // Ou outro valor padrão, caso notas não seja um array
+        }
+    }
+    {/* código EXPERIMENTAL */ }
+    {/* código EXPERIMENTAL */ }
+
 
     async function fetchBestRecipes() {
-        
+
         setIsLoading(true);
 
         try {
@@ -76,9 +105,9 @@ export default function Lobby() {
     }, [categoriaSelecionada]);
 
     const definirCategoria = (categoria) => {
-        if(categoria === categoriaSelecionada){
+        if (categoria === categoriaSelecionada) {
             setCategoriaSelecionada('all')
-        }else{
+        } else {
             setCategoriaSelecionada(categoria)
         }
         fetchBestRecipes();
@@ -106,23 +135,23 @@ export default function Lobby() {
             <div className='sec-categorias'>
                 <div className='box-categorias'>
 
-                    <button className='botao-categoria-lobby' onClick={() => {definirCategoria('Carnes')}}>
+                    <button className='botao-categoria-lobby' onClick={() => { definirCategoria('Carnes') }}>
                         <Categoria img='https://static.vecteezy.com/system/resources/previews/024/320/541/non_2x/delicious-barbecued-spare-ribs-tasty-bbq-meat-isolated-on-transparent-background-generate-ai-free-png.png' cor='laranja' titulo='Carnes' ></Categoria>
                     </button>
 
-                    <button className='botao-categoria-lobby' onClick={() => {definirCategoria('Massas')}}>
+                    <button className='botao-categoria-lobby' onClick={() => { definirCategoria('Massas') }}>
                         <Categoria img='https://combrasil.com/wp-content/uploads/2022/11/lamen-carne-72-2.png' cor='vermelho' titulo='Massas'></Categoria>
                     </button>
 
-                    <button className='botao-categoria-lobby' onClick={() => {definirCategoria('Doces')}}> 
+                    <button className='botao-categoria-lobby' onClick={() => { definirCategoria('Doces') }}>
                         <Categoria img='https://cdn.sodiedoces.com.br/wp-content/uploads/2021/09/25112651/20412_fotos_23-sodie_bolo_inteiro_540x400px23.png' cor='rosa' titulo='Doces'></Categoria>
                     </button>
 
-                    <button className='botao-categoria-lobby' onClick={() => {definirCategoria('Bebidas')}}>
+                    <button className='botao-categoria-lobby' onClick={() => { definirCategoria('Bebidas') }}>
                         <Categoria img='https://almmediaprod.s3.me-south-1.amazonaws.com/BrandCategoryMapping/juices8162022100235AM.png' cor='verde' titulo='Bebidas'></Categoria>
                     </button>
 
-                    <button className='botao-categoria-lobby' onClick={() => {definirCategoria('Peixes')}}>
+                    <button className='botao-categoria-lobby' onClick={() => { definirCategoria('Peixes') }}>
                         <Categoria img='https://static.wixstatic.com/media/4c4a08_4dc1b11fddd84be2ac282ded5d6a994d~mv2.png/v1/fill/w_598,h_448,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Novo%20Combo%20P%20Compartilhar%20Dueto%20IFOOD%201200x900px.png' cor='azul' titulo='Peixes'></Categoria>
                     </button>
 

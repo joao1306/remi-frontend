@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse, faDrumstickBite, faWheatAwn, faCandyCane, faMartiniGlassCitrus, faFishFins, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import Card from '../home/card/card';
-import Avatares from '../modal/avatares';
+import Avatares from '../modal/Avatares';
 import avatar1 from '../media/avatar1.png';
 import avatar2 from '../media/avatar2.png';
 import avatar3 from '../media/avatar3.png';

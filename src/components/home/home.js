@@ -6,6 +6,7 @@ import Perfil from './edicao-perfil/Perfil';
 import Categoria from './categoria/categoria';
 import Card from './card/card';
 import CadastroReceita from './cadastro-receita/CadastroReceita';
+import Favoritas from './favoritas/favoritas';
 import axios from 'axios';
 import Lobby from './lobby/lobby';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -60,6 +61,7 @@ export default function Home() {
             <Route path='/editar-perfil' element={<Perfil/>}/>
             <Route path='/receita/:id' element={<Receita/>}/>
             <Route path='/perfil/:idusuario' element={<PerfilUsuario/>}/>
+            <Route path='/favoritas' element={<Favoritas/>}/>
           </Routes>
 
       </div>
