@@ -63,6 +63,31 @@ export default function Receita() {
         getRecipe();
     }, [id]);
 
+    //requisição responsável pela persistência das alterações do usuario logado no banco
+    const salvarFavoritasDeUsuario = async (e) => {
+        
+        const user = JSON.parse(localStorage.getItem("loggedUser"))
+        console.log(user)
+    
+        try {
+          const response = await axios.put("http://localhost:8800/alterar-favoritas-de-usuario", user);
+    
+          if (response.status === 200) {
+            console.log('Usuário editado com sucesso!');
+    
+          } else { 
+            alert('algo não deu certo :(')
+          }
+    
+        }
+        catch (error) {
+          console.log(error.response.data);
+          alert("Sinto muito, algo deu errado");
+        }
+      };
+    
+
+
     // Código que acessa o autor pelo id
     useEffect(() => {
         if (recipe.length > 0) {
@@ -106,24 +131,6 @@ export default function Receita() {
 
     }
 
-    //    function mediaNotas(arr) {
-    //        let somaNotas = 0;
-    //        const notas = JSON.parse(arr)
-    //
-    //        notas.map((nota) => {
-    //            somaNotas = somaNotas + parseFloat(nota, 10);
-    //        });
-    //
-    //        const numeroDeNotas = notas.length;
-    //        const media = somaNotas / numeroDeNotas;
-    //        const mediaFormatada = media.toFixed(2);
-    //        const mediaString = mediaFormatada.toString().replace(/(\.0*|(?<=(\..*[^0]))0*)$/, '');
-    //
-    //        return mediaString;
-    //    }
-
-    {/* código EXPERIMENTAL */ }
-    {/* código EXPERIMENTAL */ }
     function mediaNotas(arr) {
         let somaNotas = 0;
 
@@ -147,9 +154,6 @@ export default function Receita() {
             return "N/A"; // Ou outro valor padrão, caso notas não seja um array
         }
     }
-    {/* código EXPERIMENTAL */ }
-    {/* código EXPERIMENTAL */ }
-
 
     const estrelas = document.querySelectorAll('.icone-estrela-avaliacao');
 
@@ -241,6 +245,29 @@ export default function Receita() {
         navigate(`/home/perfil/${autor.id}`)
     }
 
+    //algorítmo responsável pelo botão favoritar
+    const favoritar = () => {
+        const usuario = JSON.parse(localStorage.getItem("loggedUser"));
+
+        const listaFavoritosUsuario = usuario.favoritas;
+        const idReceitaFavoritada = recipe[0].idreceitas.toString();
+
+
+        listaFavoritosUsuario.push(idReceitaFavoritada);
+        const usuarioModificado = JSON.stringify(usuario);
+        localStorage.setItem("loggedUser", usuarioModificado);
+
+        
+        //requisição responsável pela persistência no banco de dados.
+        salvarFavoritasDeUsuario();
+
+
+
+        //codigo responsável pelo retorno visual para o usuario.
+
+
+    }
+
     return (
 
         <div className='screen-receita'>
@@ -276,7 +303,7 @@ export default function Receita() {
                                 <p id='subtitulo-usuario'>{autor.titulo}</p>
                             </div>
                         </div>
-                        <button id='botao-nao-favoritado'>
+                        <button id='botao-nao-favoritado' onClick={favoritar}>
                             <FontAwesomeIcon icon={faHeart} id='icone-fav' />
                         </button>
                         <button id='botao-ingredientes' onClick={() => openModal(recipe[0].ingredientes)}>Ingredientes</button>
