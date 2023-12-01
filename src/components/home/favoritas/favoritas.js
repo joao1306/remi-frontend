@@ -17,7 +17,7 @@ export default function Favoritas() {
   
   async function fetchMyRecipes() {
       try {
-          const response = await axios.get(`http://localhost:8800/my-recipes?userId=${usuarioLogado.id}&categoria=${categoriaSelecionada}`);
+          const response = await axios.get(`http://localhost:8800/my-favorites?userFavorites=${usuarioLogado.favoritas}&categoria=${categoriaSelecionada}`);
           if (response.status === 200) {
               const data = response.data;
               setRecipes(data);
@@ -55,6 +55,12 @@ export default function Favoritas() {
   }
   
   function mapReceitas(arr) {
+
+    if (!Array.isArray(arr)) {
+        // Se arr não for uma array, retorne um array vazio ou trate conforme necessário.
+        return [];
+    }
+
       return arr.map((receita, index) => (<Card className='card-receita-minhas-receitas' key={index}
           foto={receita.foto}
           nome={receita.nome}

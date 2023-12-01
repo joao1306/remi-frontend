@@ -65,27 +65,27 @@ export default function Receita() {
 
     //requisição responsável pela persistência das alterações do usuario logado no banco
     const salvarFavoritasDeUsuario = async (e) => {
-        
+
         const user = JSON.parse(localStorage.getItem("loggedUser"))
         console.log(user)
-    
+
         try {
-          const response = await axios.put("http://localhost:8800/alterar-favoritas-de-usuario", user);
-    
-          if (response.status === 200) {
-            console.log('Usuário editado com sucesso!');
-    
-          } else { 
-            alert('algo não deu certo :(')
-          }
-    
+            const response = await axios.put("http://localhost:8800/alterar-favoritas-de-usuario", user);
+
+            if (response.status === 200) {
+                console.log('Usuário editado com sucesso!');
+
+            } else {
+                alert('algo não deu certo :(')
+            }
+
         }
         catch (error) {
-          console.log(error.response.data);
-          alert("Sinto muito, algo deu errado");
+            console.log(error.response.data);
+            alert("Sinto muito, algo deu errado");
         }
-      };
-    
+    };
+
 
 
     // Código que acessa o autor pelo id
@@ -245,7 +245,6 @@ export default function Receita() {
         navigate(`/home/perfil/${autor.id}`)
     }
 
-    //algorítmo responsável pelo botão favoritar
     const favoritar = () => {
         const usuario = JSON.parse(localStorage.getItem("loggedUser"));
 
@@ -257,15 +256,93 @@ export default function Receita() {
         const usuarioModificado = JSON.stringify(usuario);
         localStorage.setItem("loggedUser", usuarioModificado);
 
-        
+
         //requisição responsável pela persistência no banco de dados.
         salvarFavoritasDeUsuario();
 
 
 
-        //codigo responsável pelo retorno visual para o usuario.
+        //reset da pagina.
+        navigate(`/home/receita/${recipe[0].idreceitas}`)
+
+    }
+
+    const desfavoritar = () => {
+        const usuario = JSON.parse(localStorage.getItem("loggedUser"));
+
+        const listaFavoritosUsuario = usuario.favoritas;
+        const idReceitaAtual = recipe[0].idreceitas.toString();
+
+        //remoção do id
+        
+        const index = listaFavoritosUsuario.indexOf(idReceitaAtual);
+        
+
+        if(index !== -1){
+            listaFavoritosUsuario.splice(index, 1);
+        }else{
+            alert("Receita não encontrada.")
+        }
+        
+        const usuarioModificado = JSON.stringify(usuario);
+        localStorage.setItem("loggedUser", usuarioModificado);
 
 
+        //requisição responsável pela persistência no banco de dados.
+        salvarFavoritasDeUsuario();
+
+
+
+        //reset da pagina.
+        navigate(`/home/receita/${recipe[0].idreceitas}`)
+
+    }
+
+    //algorítmo responsável por verificar se a receita já está favoritada pelo usuario
+    const favCheck = () => {
+        const usuario = JSON.parse(localStorage.getItem("loggedUser"));
+
+        const listaFavoritosUsuario = usuario.favoritas;
+        const idReceitaPagina = recipe[0].idreceitas.toString();
+
+        //checagem de Ids
+        if (listaFavoritosUsuario.includes(idReceitaPagina)) {
+            return (
+                <div id='bloco-perfil-botao-ingredientes'>
+                    <div id='container-foto-nome'>
+                        <div id='display-perfil' onClick={irParaUsuario}>
+                            <img id='foto-perfil' src={fotos[indexAvatarAutor]}></img>
+                        </div>
+                        <div id='nome-subtitulo'>
+                            <p id='nome-usuario'>{autor.username}</p>
+                            <p id='subtitulo-usuario'>{autor.titulo}</p>
+                        </div>
+                    </div>
+                    <button id='botao-favoritado' onClick={desfavoritar}>
+                        <FontAwesomeIcon icon={faHeart} id='icone-fav' />
+                    </button>
+                    <button id='botao-ingredientes' onClick={() => openModal(recipe[0].ingredientes)}>Ingredientes</button>
+                </div>
+            );
+        } else {
+            return (
+                <div id='bloco-perfil-botao-ingredientes'>
+                    <div id='container-foto-nome'>
+                        <div id='display-perfil' onClick={irParaUsuario}>
+                            <img id='foto-perfil' src={fotos[indexAvatarAutor]}></img>
+                        </div>
+                        <div id='nome-subtitulo'>
+                            <p id='nome-usuario'>{autor.username}</p>
+                            <p id='subtitulo-usuario'>{autor.titulo}</p>
+                        </div>
+                    </div>
+                    <button id='botao-nao-favoritado' onClick={favoritar}>
+                        <FontAwesomeIcon icon={faHeart} id='icone-fav-cinza' />
+                    </button>
+                    <button id='botao-ingredientes' onClick={() => openModal(recipe[0].ingredientes)}>Ingredientes</button>
+                </div>
+            );
+        }
     }
 
     return (
@@ -293,21 +370,7 @@ export default function Receita() {
                         </div>
                     </div>
                     <p className='texto-descricao-receita'>{recipe[0].descricao}</p>
-                    <div id='bloco-perfil-botao-ingredientes'>
-                        <div id='container-foto-nome'>
-                            <div id='display-perfil' onClick={irParaUsuario}>
-                                <img id='foto-perfil' src={fotos[indexAvatarAutor]}></img>
-                            </div>
-                            <div id='nome-subtitulo'>
-                                <p id='nome-usuario'>{autor.username}</p>
-                                <p id='subtitulo-usuario'>{autor.titulo}</p>
-                            </div>
-                        </div>
-                        <button id='botao-nao-favoritado' onClick={favoritar}>
-                            <FontAwesomeIcon icon={faHeart} id='icone-fav' />
-                        </button>
-                        <button id='botao-ingredientes' onClick={() => openModal(recipe[0].ingredientes)}>Ingredientes</button>
-                    </div>
+                    {favCheck()}
                 </div>
             </div>
 
