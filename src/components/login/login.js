@@ -6,6 +6,7 @@ import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import {AuthContext} from '../../contexts/AuthContext';
+import background from './background.png';
 
 
 {/* No ato de logar preciso que seja persistido tanto no localstorage quanto na context o objeto do usuario logado. */}
@@ -60,6 +61,7 @@ export default function Login() {
   
   return (
     <div className='background-login'>
+      <img src={background} className='background-icons'/>
       <div className='login-box'>
         <form className='login-form' onSubmit={onSubmit}>
           <img src={logoremi} className='logo-login'></img>

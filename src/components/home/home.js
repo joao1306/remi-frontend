@@ -14,6 +14,7 @@ import MinhasReceitas from './minhas-receitas/MinhasReceitas';
 import PerfilUsuario from '../perfil-usuario/perfil';
 import ilustracao from '../media/ilustracaomobile.png';
 import logo from '../media/logoremibranca.png';
+import background from './backgrounddark.png';
 
 export default function Home() {
 
@@ -53,6 +54,7 @@ export default function Home() {
       </div>
       <Sidebar></Sidebar>
       <div className='conteudo-home'>
+          <img src={background} className='background-icons'/>
           <Routes>
             <Route path='/lobby' element={<Lobby/>}/>
             <Route path='/cadastro-receita' element={<CadastroReceita/>}/>

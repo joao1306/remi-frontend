@@ -4,6 +4,7 @@ import logoremi from './logoremi.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faLock, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
+import background from '../login/background.png';
 
 
 export default function Cadastro() {
@@ -40,6 +41,7 @@ export default function Cadastro() {
 
   return (
     <div className='background-cadastro'>
+      <img src={background} className='background-icons'/>
       <div className='login-box'>
         <form className='login-form' onSubmit={onSubmit}>
           <img src={logoremi} className='logo-login'></img>

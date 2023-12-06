@@ -5,6 +5,13 @@
     justify-content: center;
     align-items: center;
     background-color: orange;
+    position: relative;
+}
+
+.background-icons{
+    width: 100%;
+    position: absolute;
+    opacity:0.2;
 }
 
 .login-box{
@@ -14,6 +21,7 @@
     border-radius: 1rem;
     font-family: 'Montserrat', sans-serif;
     transition: all .3s ease;
+    z-index: 10;
 }
 
 .login-form{

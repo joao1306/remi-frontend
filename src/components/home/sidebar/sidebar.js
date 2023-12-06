@@ -26,6 +26,14 @@ export default function Sidebar() {
         setIsSidebarActive(!isSidebarActive);
     };
 
+    const handleMouseEnter = () => {
+        setIsSidebarActive(true);
+      };
+    
+      const handleMouseLeave = () => {
+        setIsSidebarActive(false);
+      };
+
     const sidebarClasses = `sidebar ${isSidebarActive ? 'active' : ''}`;
     const fotos = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
 
@@ -34,8 +42,7 @@ export default function Sidebar() {
     }
 
     return (
-        <div className={sidebarClasses}>
-            <button className="btn-sidebar" onClick={toggleSidebar}><FontAwesomeIcon icon={faBars} /></button>
+        <div className={sidebarClasses} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             <div className='display-foto-perfil'>
                 <img src={fotos[indexAvatarUsuarioLogado]} className='foto-perfil' onClick={irParaUsuario}></img>
             </div>
