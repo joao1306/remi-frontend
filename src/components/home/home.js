@@ -54,7 +54,6 @@ export default function Home() {
       </div>
       <Sidebar></Sidebar>
       <div className='conteudo-home'>
-          <img src={background} className='background-icons'/>
           <Routes>
             <Route path='/lobby' element={<Lobby/>}/>
             <Route path='/cadastro-receita' element={<CadastroReceita/>}/>
